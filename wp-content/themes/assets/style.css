@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@100;200;300;400;600;800&family=Quicksand:wght@300;400;600;700&family=WindSong&display=swap');
 
+html {
+    scroll-behavior: smooth;
+}
+
 :root {
     --max-width: 1024px;
     /* color */
@@ -687,6 +691,7 @@ main {
     height: 100vh;
     overflow: hidden;
     position: relative;
+
 }
 
 .overlay {
@@ -715,17 +720,18 @@ main {
 }
 
 .banner-container {
+    
     width: 90%;
     max-width: 500px;
+    max-height: 95%;
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     height: max-content;
     z-index: 9;
     display: flex;
     flex-direction: column;
-    gap: 40px;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -768,7 +774,7 @@ main {
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    margin-top: 20px;
+    
     font-weight: 200;
 }
 
@@ -865,6 +871,14 @@ main {
 }
 
 /* TIME LINE */
+.timeline-container
+{
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+    flex-wrap: nowrap;
+    gap: var(--gap);
+}
 .time-line-section {
     display: grid;
     position: relative;
@@ -929,16 +943,11 @@ main {
     background-color: var(--primary-color);
     padding: 8px;
     border-radius: 12px;
-}
-
-.timeline-media img {
+}.timeline-media img {
     aspect-ratio: 1/1;
-    object-fit: cover;
-    max-width: 100%;
+    object-fit: cover;    max-width: 100%;
     border-radius: 8px;
-}
-
-.timeline-body {
+}.timeline-body {
     display: grid;
     justify-content: left;
     width: 100%;
@@ -957,14 +966,15 @@ main {
 
 /* COUNTDOWN */
 #countdown-section {
-    margin-top: 80px;
-    padding: 80px 0;
+    
+    padding: 50px 0;
+    background-color:  #6d3e28;
 }
 
 .count-down {
     background: var(--primary-color);
     padding: 20px;
-    border-radius: 120px 120px 0 0;
+    border-radius: 28px 28px 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1064,13 +1074,72 @@ main {
 
 /* INVITATION */
 .invitation {
-    background-color: var(--bg);
+    background-color: #6d3e28;
+    
 }
 
 .invitation-container {
     padding: 20px;
-    display: grid;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
     gap: var(--gap);
+     background-color: var(--text-white);
+    
+}
+
+.invitation-card-container {
+    padding: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--gap);
+   
+}
+
+@media (max-width: 991px) {
+    .timeline-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 16px;
+        width: auto;
+        max-width: none;
+        margin-left: 0;
+        margin-right: 0;
+        box-sizing: border-box;
+    }
+    .invitation-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 16px;
+        width: auto;
+        max-width: none;
+        margin-left: 0;
+        margin-right: 0;
+        box-sizing: border-box;
+    }
+
+    .invitation-container .invitation-card {
+        width: 100%;
+        max-width: 420px;
+      
+    }
+    .invitation-card-container{
+    
+    flex-wrap: wrap;
+    justify-content: center;
+        padding: 16px;
+        width: auto;
+        max-width: none;
+        margin-left: 0;
+        margin-right: 0;
+        box-sizing: border-box;
+       
+}
+
+
 }
 
 .invitation-card {
@@ -1080,8 +1149,85 @@ main {
     padding: 20px;
     gap: 12px;
     background-color: var(--text-white);
-    border-radius: 12px;
+    border-radius: 28px;
     text-align: center;
+    box-shadow: 0 26px 60px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.invitation-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 28px 72px rgba(0, 0, 0, 0.12);
+}
+
+.invitation-card-slider {
+    width: 100%;
+    padding-bottom: 36px;
+}
+
+.invitation-card-slider .swiper-slide {
+    width: auto;
+}
+
+.invitation-card-slider .swiper-slide .invitation-card-detail {
+    width: min(100%, 420px);
+    margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+    .invitation-card-slider.swiper {
+        overflow: visible;
+    }
+
+    .invitation-card-slider.swiper .swiper-wrapper {
+        transform: none !important;
+        transition: none !important;
+        justify-content: space-between;
+    }
+
+    .invitation-card-slider.swiper .swiper-slide {
+        width: calc((100% - 64px) / 3) !important;
+    }
+
+    .invitation-pagination {
+        display: none;
+    }
+}
+
+.invitation-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.invitation-pagination .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background: rgba(109, 62, 40, 0.18);
+    opacity: 1;
+    border-radius: 999px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.invitation-pagination .swiper-pagination-bullet-active {
+    background-color: var(--primary-color);
+    transform: scale(1.25);
+}
+
+.invitation-card-slider .invitation-card-detail img {
+    max-width: 100%;
+    border-radius: 20px;
+    box-shadow: inset 0 0 0 1px rgba(109, 62, 40, 0.08);
+}
+
+.invitation-card-slider .invitation-card-detail .card-title {
+    margin-top: 12px;
+}
+
+.invitation-card-slider .invitation-card-detail .invitation-body {
+    width: 100%;
 }
 
 .invitation-card .social-link a {
@@ -1101,6 +1247,27 @@ main {
     padding: 8px;
     background-color: var(--text-white);
     border-radius: 999px 999px 0 0;
+}
+
+/* Disable any zoom/scale effects for invitation images */
+.invitation img,
+.invitation .invitation-card-detail img {
+    transform: none !important;
+    -webkit-transform: none !important;
+    transition: none !important;
+    -webkit-transition: none !important;
+    cursor: default !important;
+    will-change: auto !important;
+}
+
+/* Prevent AOS or lightbox zoom animations inside invitation section */
+.invitation [data-aos^="zoom"],
+.invitation [data-aos*="zoom"],
+.invitation .wp-lightbox-container,
+.invitation .wp-lightbox-overlay {
+    transform: none !important;
+    -webkit-transform: none !important;
+    animation: none !important;
 }
 
 .card-title {

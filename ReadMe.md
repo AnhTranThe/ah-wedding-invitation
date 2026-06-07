@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project is a beautifully designed **Wedding Invitation Website** for the celebration of **An Yami & Thu Buzzy**. The website provides an interactive experience to invite guests, share the couple's story, and deliver key details about the event. It is crafted with modern web technologies, ensuring a delightful experience for all visitors.
+This project is a beautifully designed **Wedding Invitation Website** for the celebration of **Thế Anh & Lệ Huỳnh**. The website provides an interactive experience to invite guests, share the couple's story, and deliver key details about the event. It is crafted with modern web technologies, ensuring a delightful experience for all visitors.
 
 ---
 
