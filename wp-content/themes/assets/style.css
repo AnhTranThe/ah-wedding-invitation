@@ -874,7 +874,6 @@ main {
 .timeline-container
 {
     justify-content: center;
-    align-items: center;
     display: inline-flex;
     flex-wrap: nowrap;
     gap: var(--gap);
@@ -1079,24 +1078,30 @@ main {
 }
 
 .invitation-container {
+    width: 100%;
     padding: 20px;
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: flex-start;
     gap: var(--gap);
-     background-color: var(--text-white);
-    
+    background-color: var(--text-white);
 }
 
 .invitation-card-container {
+    width: 100%;
     padding: 20px;
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: flex-start;
     gap: var(--gap);
-   
+}
+
+.invitation-card {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
 }
 
 @media (max-width: 991px) {
