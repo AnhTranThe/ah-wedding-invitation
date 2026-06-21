@@ -191,3 +191,36 @@
   .font-great-vibe {
     font-family: Dancing Script !important;
 }
+
+/* Simple QR modal styles */
+.qr-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 20000;
+    align-items: center;
+    justify-content: center;
+}
+.qr-modal[aria-hidden="false"] { display: flex; }
+.qr-modal__overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.45); }
+.qr-modal__box {
+    position: relative;
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 900px;
+    width: calc(100% - 40px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+.qr-modal__close { position: absolute; right: 12px; top: 8px; border: none; background: transparent; font-size: 26px; cursor: pointer; }
+.qr-modal__header { text-align: center; margin-bottom: 10px; }
+.qr-modal__header h3 { margin: 0; }
+.qr-modal__cards { display:flex; gap: 18px; justify-content:center; flex-wrap:wrap; }
+.qr-card { width: 320px; background:#fff; padding:12px; border-radius:10px; box-shadow:0 8px 18px rgba(0,0,0,0.06); text-align:center; }
+.qr-card__img { width:180px; height:180px; object-fit:contain; margin:0 auto; border-radius:6px; }
+.qr-card__name{ font-weight:700; margin-top:10px; }
+.qr-card__bank{ color:#777; font-size:13px; }
+.qr-card__acct{ margin-top:8px; font-weight:600; }
+.qr-modal__actions{ text-align:center; margin-top:12px; }
+.qr-modal__close-btn{ min-width:120px; }
+@media (max-width:760px){ .qr-card{ width:100%; } .qr-card__img{ width:160px; height:160px;} }

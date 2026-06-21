@@ -738,8 +738,8 @@ main {
     color: var(--text-white);
     border: 1px solid rgb(255, 255, 255);
     padding: 20px;
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px);
+    /* backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px); */
     border-radius: 12px;
     background-color: rgba(0, 0, 0, 0.237);
 }
