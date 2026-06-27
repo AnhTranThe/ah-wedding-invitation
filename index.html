@@ -246,6 +246,7 @@
       <section id="banner" class="bg_overlay">
         <img
           data-src="https://res.cloudinary.com/deneskatf/image/upload/v1781974329/dsc02975_mtuhmk.webp"
+          src="https://res.cloudinary.com/deneskatf/image/upload/v1781974329/dsc02975_mtuhmk.webp"
           alt=""
           class="banner-bg img_bg banner_top lazyload"
           style="background-position: center center"
@@ -1563,7 +1564,7 @@
     <!-- END ALBUM -->
 
     <!-- ALBUM 2 -->
-    <section class="album-section-2" id="album-section-2">
+    <section class="album-section-2" id="album-section">
       <div class="container">
         <p
           style="color: #d1635b !important"
@@ -1913,21 +1914,58 @@
       var toggleAudioBtn = document.querySelector(".toggleAudio");
       var toggleIcon = toggleAudioBtn?.querySelector("i");
 
-      window.addEventListener("load", function () {
-        if (window.location.hash) {
-          document.body.style.overflow = "auto";
+      function preloadBannerThenShowModal() {
+        window.scrollTo(0, 0);
+        var bannerImg = document.querySelector(".banner-bg");
+        if (bannerImg) {
+          var img = new Image();
+          img.onload = function () {
+            if (welcomeModal) welcomeModal.style.display = "flex";
+            document.body.style.overflow = "hidden";
+          };
+          img.src = bannerImg.getAttribute("data-src") || bannerImg.src;
         } else {
           if (welcomeModal) welcomeModal.style.display = "flex";
           document.body.style.overflow = "hidden";
-          window.scrollTo(0, 0);
         }
-      });
+      }
+
+      // Show modal only on fresh load, skip when back from gallery
+      if (document.referrer && document.referrer.includes("gallery.html")) {
+        document.body.style.overflow = "auto";
+        if (window.location.hash) {
+          setTimeout(function () {
+            var el = document.querySelector(window.location.hash);
+            if (el) {
+              var rect = el.getBoundingClientRect();
+              window.scrollTo({
+                top: window.scrollY + rect.top - 20,
+                behavior: "smooth",
+              });
+            }
+          }, 100);
+        }
+      } else {
+        preloadBannerThenShowModal();
+      }
 
       if (startBtn) {
         startBtn.addEventListener("click", function () {
           audio?.play();
           if (welcomeModal) welcomeModal.style.display = "none";
           document.body.style.overflow = "auto";
+          if (window.location.hash) {
+            setTimeout(function () {
+              var el = document.querySelector(window.location.hash);
+              if (el) {
+                var rect = el.getBoundingClientRect();
+                window.scrollTo({
+                  top: window.scrollY + rect.top - 20,
+                  behavior: "smooth",
+                });
+              }
+            }, 100);
+          }
         });
       }
 
