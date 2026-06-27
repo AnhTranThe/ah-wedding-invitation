@@ -2392,7 +2392,7 @@
           }
         });
 
-        // --- Wish Ticker (auto-scroll doc, max 5 per frame) ---
+        // --- Wish Ticker (staggered stickers + auto-scroll) ---
         var tickerContent = document.getElementById("wish-ticker-content");
         var tickerTimer = null;
         var tickerOffset = 0;
@@ -2403,7 +2403,7 @@
             tickerContent.innerHTML = "";
             return;
           }
-          var recent = wishes.slice(-5).reverse();
+          var recent = wishes.slice(-5);
           tickerContent.innerHTML = recent
             .map(function (w) {
               return (
@@ -2417,6 +2417,10 @@
               );
             })
             .join("");
+          var items = tickerContent.querySelectorAll(".wish-ticker__item");
+          items.forEach(function (el, i) {
+            el.style.animationDelay = (items.length - 1 - i) * 0.15 + "s";
+          });
           tickerOffset = 0;
           tickerContent.style.transition = "none";
           tickerContent.style.transform = "translateY(0)";
@@ -2437,8 +2441,7 @@
             return;
           }
           tickerContent.style.transition = "transform 0.6s ease";
-          tickerContent.style.transform =
-            "translateY(-" + tickerOffset * itemHeight + "px)";
+          tickerContent.style.transform = "translateY(-" + tickerOffset * itemHeight + "px)";
         }
 
         function startTicker() {
