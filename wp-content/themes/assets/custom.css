@@ -259,98 +259,65 @@
                   display: grid;
                   gap: 18px;
                 }
+                #countdown-section > .container {
+                  display: flex;
+                  flex-wrap: wrap;
+                  gap: 24px;
+                }
+                #countdown-section > .container > .count-down {
+                  flex: 0 0 100%;
+                }
+                #countdown-section > .container > .save-date-event {
+                  flex: 1 1 calc(50% - 24px);
+                  margin: 0;
+                  min-width: 0;
+                }
+                @media (max-width: 900px) {
+                  #countdown-section > .container > .save-date-event {
+                    flex: 0 0 100%;
+                  }
+                }
                 .save-date-event {
-                  margin: 40px 0 40px;
+                  margin: 0;
                 }
                 .save-date-panel {
                   max-width: 1180px;
                   margin: 0 auto;
-                  padding: 46px 36px;
+                  padding: 35px;
                   background: #fff;
-                  border-radius: 36px;
-                  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.12);
-                }
-                @media (min-width: 1400px) {
-                  .save-date-panel .save-date-photo-col {
-                    max-width: 480px;
-                  }
-                  .save-date-panel .save-date-photo {
-                    height: 320px;
-                  }
+                  border-radius: 24px;
+                  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
                 }
                 .save-date-grid {
                   display: grid;
-                  grid-template-columns: minmax(320px, 1.2fr) minmax(360px, 0.8fr);
-                  gap: 40px;
-                  align-items: center;
+                  grid-template-columns: 280px 1fr;
+                  gap: 20px;
+                  align-items: start;
                 }
-              
                 .save-date-photo-col {
                   display: flex;
-                  justify-content: center;
                   flex-direction: column;
+                  gap: 12px;
                 }
                 .save-date-photo-frame {
                   position: relative;
                   overflow: hidden;
                   width: 100%;
-                  border-radius: 34px;
-                  padding: 16px;
+                  border-radius: 16px;
+                  padding: 6px;
                   background: #faf6f1;
-                  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.11);
+                  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
                 }
                 .save-date-photo-inner {
-                  border-radius: 28px;
+                  border-radius: 12px;
                   overflow: hidden;
                   background: #fff;
                 }
                 .save-date-photo {
                   width: 100%;
-                  height: 400px;
+                  height: 200px;
                   object-fit: cover;
                   display: block;
-                }
-                .save-date-event-list {
-                  margin-top: 24px;
-                  display: grid;
-                  gap: 12px;
-                }
-                .save-date-event-item {
-                  display: flex;
-                  align-items: center;
-                  gap: 14px;
-                  padding: 14px 18px;
-                  background: #faf6f1;
-                  border-radius: 16px;
-                  border: 1px solid rgba(214, 51, 108, 0.08);
-                  transition: box-shadow 0.3s;
-                }
-                .save-date-event-item:hover {
-                  box-shadow: 0 4px 16px rgba(214, 51, 108, 0.12);
-                }
-                .save-date-event-time {
-                  font-size: 0.85rem;
-                  font-weight: 700;
-                  color: #d6336c;
-                  white-space: nowrap;
-                  min-width: 52px;
-                  letter-spacing: 0.04em;
-                }
-                .save-date-event-desc {
-                  font-size: 0.92rem;
-                  color: #4a4a4a;
-                  line-height: 1.4;
-                }
-                .save-date-event-icon {
-                  display: inline-flex;
-                  align-items: center;
-                  justify-content: center;
-                  width: 32px;
-                  height: 32px;
-                  border-radius: 50%;
-                  background: rgba(214, 51, 108, 0.16);
-                  flex-shrink: 0;
-                  font-size: 14px;
                 }
                 .save-date-photo-decor {
                   position: absolute;
@@ -368,52 +335,82 @@
                 .save-date-photo-decor--bottom {
                   background: radial-gradient(circle at bottom right, rgba(255, 182, 193, 0.18), transparent 38%);
                 }
+                .save-date-event-list {
+                  display: grid;
+                  grid-template-columns: 1fr 1fr;
+                  gap: 8px;
+                }
+                .save-date-event-item {
+                  display: flex;
+                  flex-direction: column;
+                  gap: 2px;
+                  padding: 10px 14px;
+                  background: #faf6f1;
+                  border-radius: 12px;
+                  border: 1px solid rgba(214, 51, 108, 0.08);
+                  transition: box-shadow 0.3s;
+                }
+                .save-date-event-item:hover {
+                  box-shadow: 0 4px 16px rgba(214, 51, 108, 0.12);
+                }
+                .save-date-event-time {
+                  font-size: 0.8rem;
+                  font-weight: 700;
+                  color: #d6336c;
+                  white-space: nowrap;
+                  letter-spacing: 0.04em;
+                }
+                .save-date-event-desc {
+                  font-size: 0.82rem;
+                  color: #4a4a4a;
+                  line-height: 1.3;
+                }
                 .save-date-content {
                   display: grid;
-                  gap: 24px;
+                  gap: 12px;
                 }
                 .save-date-title {
-                  font-size: 3rem;
+                  font-size: 1.3rem;
                   color: #d1635b;
                   letter-spacing: 0.04em;
                   font-family: 'Playfair Display', serif;
                   margin: 0;
                 }
                 .save-date-names {
-                  font-size: 2.3rem;
+                  font-size: 1.1rem;
                   color: #2b2b2b;
-                  line-height: 1.05;
+                  line-height: 1.2;
                   margin: 0;
                   font-family: 'Playfair Display', serif;
                 }
                 .save-date-detail-line {
-                  font-size: 1rem;
+                  font-size: 0.78rem;
                   color: #7c7c7c;
-                  letter-spacing: 0.14em;
+                  letter-spacing: 0.12em;
                   text-transform: uppercase;
                 }
                 .save-date-card {
                   background: #fff;
-                  border-radius: 30px;
-                  padding: 32px;
+                  border-radius: 16px;
+                  padding: 14px;
                   border: 1px solid rgba(214, 51, 108, 0.08);
-                  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.1);
+                  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
                 }
                 .save-date-card-title {
-                  margin-bottom: 18px;
+                  margin-bottom: 8px;
                 }
                 .save-date-card-label {
                   display: inline-block;
-                  font-size: 0.95rem;
+                  font-size: 0.78rem;
                   font-weight: 700;
                   color: #d6336c;
-                  letter-spacing: 0.14em;
+                  letter-spacing: 0.12em;
                   text-transform: uppercase;
                 }
                 .save-date-calendar-card {
                   background: #f9f6f1;
-                  border-radius: 24px;
-                  padding: 22px;
+                  border-radius: 12px;
+                  padding: 10px;
                   border: 1px solid rgba(214, 51, 108, 0.14);
                   position: relative;
                   overflow: hidden;
@@ -428,13 +425,13 @@
                 .save-date-calendar-card .cal-grid {
                   display: grid;
                   grid-template-columns: repeat(7, 1fr);
-                  gap: 8px;
+                  gap: 4px;
                 }
                 .save-date-calendar-card .cal-day {
-                  padding: 10px 4px;
-                  font-size: 12px;
+                  padding: 4px 2px;
+                  font-size: 10px;
                   font-weight: 700;
-                  border-radius: 12px;
+                  border-radius: 8px;
                   text-align: center;
                   color: #4d4d4d;
                   background: rgba(214, 51, 108, 0.08);
@@ -444,7 +441,7 @@
                   box-shadow: none;
                 }
                 .save-date-calendar-card .cal-day.small {
-                  font-size: 10px;
+                  font-size: 8px;
                   color: #9b9b9b;
                   text-transform: uppercase;
                   opacity: 0.85;
@@ -453,7 +450,7 @@
                 .save-date-calendar-card .cal-day.highlight {
                   background: #d6336c;
                   color: #fff;
-                  box-shadow: 0 0 20px rgba(214, 51, 108, 0.24);
+                  box-shadow: 0 0 12px rgba(214, 51, 108, 0.24);
                 }
                 .save-date-location,
                 .save-date-rsvp {
@@ -470,24 +467,27 @@
                 }
                 @media (max-width: 980px) {
                   .save-date-photo {
-                    height: 300px;
+                    height: 140px;
                   }
                 }
                 @media (max-width: 640px) {
                   .save-date-panel {
-                    padding: 28px 18px;
+                    padding: 16px;
                   }
                   .save-date-grid {
                     grid-template-columns: 1fr;
                   }
                   .save-date-photo {
-                    height: 220px;
+                    height: 200px;
                   }
                   .save-date-title {
-                    font-size: 2.4rem;
+                    font-size: 1.5rem;
                   }
                   .save-date-names {
-                    font-size: 1.8rem;
+                    font-size: 1.2rem;
+                  }
+                  .save-date-event-list {
+                    grid-template-columns: 1fr;
                   }
                 }
                 @media (max-width: 960px) {
@@ -556,7 +556,7 @@
                 }
                 .album-grid-2 {
                   display: grid;
-                  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                  grid-template-columns: repeat(3, 1fr);
                   gap: 28px;
                   margin-bottom: 40px;
                 }
@@ -599,7 +599,7 @@
                   display: inline-block;
                   padding: 14px 40px;
                   background: #d6336c;
-                  color: #fff;
+                  color: #fff!important;
                   border-radius: 50px;
                   font-size: 1rem;
                   font-weight: 600;
