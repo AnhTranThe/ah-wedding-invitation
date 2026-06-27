@@ -266,15 +266,17 @@
   max-height: 260px;
   pointer-events: none;
   overflow: hidden;
-  mask-image: linear-gradient(to bottom, transparent 0%, #000 40px, #000 100%);
-  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 40px, #000 100%);
 }
 .wish-ticker__content {
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding: 8px 0;
-  transition: transform 0.6s ease;
+}
+
+@keyframes tickerScroll {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
 }
 .wish-ticker__item {
   display: flex;
