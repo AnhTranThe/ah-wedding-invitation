@@ -2402,16 +2402,19 @@
             return;
           }
           var recent = wishes.slice(-5);
+          var icons = ["🎉","🎊","🎂","🎁","💐","🥂","🍾","✨","🌸","💝","🌟","🎀"];
           var html = recent
             .map(function (w) {
+              var icon = icons[Math.floor(Math.random() * icons.length)];
               return (
                 '<div class="wish-ticker__item">' +
-                '<div class="wish-ticker__name">' +
+                '<span class="wish-ticker__name">' +
                 _escapeHtml(w.name) +
-                "</div>" +
-                '<div class="wish-ticker__text">' +
+                ':</span>' +
+                '<span class="wish-ticker__icon">' + icon + '</span>' +
+                '<span class="wish-ticker__text">' +
                 _escapeHtml(w.message) +
-                "</div></div>"
+                "</span></div>"
               );
             })
             .join("");
