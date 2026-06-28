@@ -250,10 +250,9 @@
     <header>
       <section id="banner" class="bg_overlay">
         <img
-          data-src="https://res.cloudinary.com/deneskatf/image/upload/v1781974329/dsc02975_mtuhmk.webp"
           src="https://res.cloudinary.com/deneskatf/image/upload/v1781974329/dsc02975_mtuhmk.webp"
           alt=""
-          class="banner-bg img_bg banner_top lazyload"
+          class="banner-bg img_bg banner_top"
           style="background-position: center center"
         />
 
@@ -524,9 +523,10 @@
     <!-- TIMELINE -->
     <section
       id="time-line"
-      class="time-line-section img_bg bg_overlay lazyload"
-      data-bg="https://res.cloudinary.com/deneskatf/image/upload/v1781842432/AH.WEDDING/OM.EDIT/dsc02504_ys1sqo.webp"
-      style="background-image: none"
+      class="time-line-section img_bg bg_overlay"
+      style="
+        background-image: url(https://res.cloudinary.com/deneskatf/image/upload/v1781842432/AH.WEDDING/OM.EDIT/dsc02504_ys1sqo.webp);
+      "
     >
       <div class="time-line container">
         <div class="section-heading">
@@ -736,9 +736,10 @@
       <div></div>
       <div class="container">
         <div
-          class="count-down section-countdown img_bg bg_overlay lazyload"
-          data-bg="https://s3.ap-southeast-1.amazonaws.com/tynab.wedding/image/9267.webp"
-          style="background-image: none"
+          class="count-down section-countdown img_bg bg_overlay"
+          style="
+            background-image: url(https://s3.ap-southeast-1.amazonaws.com/tynab.wedding/image/9267.webp);
+          "
         >
           <svg
             class="heartbeat mt-2"
@@ -821,9 +822,9 @@
                 <div class="save-date-photo-frame">
                   <div class="save-date-photo-inner">
                     <img
-                      data-src="https://res.cloudinary.com/deneskatf/image/upload/v1782396697/AH.WEDDING/OM.EDIT/dsc02836_ogvoel.webp"
+                      src="https://res.cloudinary.com/deneskatf/image/upload/v1782396697/AH.WEDDING/OM.EDIT/dsc02836_ogvoel.webp"
                       alt="Save Our Date"
-                      class="save-date-photo lazyload"
+                      class="save-date-photo"
                       loading="lazy"
                     />
                   </div>
@@ -929,9 +930,9 @@
                 <div class="save-date-photo-frame">
                   <div class="save-date-photo-inner">
                     <img
-                      data-src="https://res.cloudinary.com/deneskatf/image/upload/v1781842443/AH.WEDDING/OM.EDIT/dsc02930_jghrru.webp"
+                      src="https://res.cloudinary.com/deneskatf/image/upload/v1781842443/AH.WEDDING/OM.EDIT/dsc02930_jghrru.webp"
                       alt="Save Our Date"
-                      class="save-date-photo lazyload"
+                      class="save-date-photo"
                       loading="lazy"
                     />
                   </div>
@@ -1847,9 +1848,9 @@
       <div class="uk-overlay uk-overlay-primary uk-position-cover"></div>
 
       <img
-        data-src="https://res.cloudinary.com/deneskatf/image/upload/v1781842434/AH.WEDDING/OM.EDIT/dsc02558_j06fr9.webp"
+        src="https://res.cloudinary.com/deneskatf/image/upload/v1781842434/AH.WEDDING/OM.EDIT/dsc02558_j06fr9.webp"
         alt=""
-        class="thankyou-bg lazyload"
+        class="thankyou-bg"
         style="object-position: center; filter: grayscale(100%)"
       />
 
@@ -1948,88 +1949,6 @@
     <!-- WISH TICKER -->
     <div id="wish-ticker" class="wish-ticker" aria-live="polite">
       <div id="wish-ticker-content" class="wish-ticker__content"></div>
-    </div>
-
-    <!-- RSVP POPUP -->
-    <div
-      id="rsvp-popup"
-      class="wish-popup"
-      aria-hidden="true"
-      role="dialog"
-      aria-label="Xác nhận tham dự"
-    >
-      <div class="wish-popup__header">
-        <i
-          class="ri-calendar-check-fill"
-          style="
-            font-size: 28px;
-            color: #198754;
-            display: block;
-            margin-bottom: 6px;
-          "
-        ></i>
-        <h3 style="color: #198754">Xác nhận tham dự</h3>
-        <p>Vui lòng điền thông tin bên dưới</p>
-        <div class="wish-popup__header-divider">
-          <span></span>
-          <i class="ri-heart-3-line" style="color: #198754"></i>
-          <span></span>
-        </div>
-        <button
-          class="wish-popup__close rsvp-close"
-          aria-label="Đóng"
-          style="background: rgba(25, 135, 84, 0.08); color: #198754"
-        >
-          <i class="ri-close-line"></i>
-        </button>
-      </div>
-      <div class="wish-popup__body">
-        <form id="rsvp-form" autocomplete="off">
-          <input
-            type="text"
-            id="rsvp-name"
-            placeholder="Họ và tên"
-            maxlength="100"
-            required
-          />
-          <div class="rsvp-radio-group">
-            <label class="rsvp-radio">
-              <input type="radio" name="rsvp-attend" value="yes" checked />
-              <span class="rsvp-radio__mark"></span>
-              <span class="rsvp-radio__label">Có, tôi sẽ tham dự</span>
-            </label>
-            <label class="rsvp-radio">
-              <input type="radio" name="rsvp-attend" value="no" />
-              <span class="rsvp-radio__mark"></span>
-              <span class="rsvp-radio__label"
-                >Tôi bận, rất tiếc không thể tham dự</span
-              >
-            </label>
-          </div>
-          <div class="rsvp-guests" id="rsvp-guests-field">
-            <label class="rsvp-guests-label">Số lượng người tham dự</label>
-            <div class="rsvp-guests-input-wrap">
-              <button type="button" class="rsvp-qty-btn" id="rsvp-qty-minus">
-                −
-              </button>
-              <input
-                type="number"
-                id="rsvp-guests"
-                value="1"
-                min="1"
-                max="20"
-                readonly
-              />
-              <button type="button" class="rsvp-qty-btn" id="rsvp-qty-plus">
-                +
-              </button>
-            </div>
-          </div>
-          <button type="submit" class="rsvp-submit-btn">
-            <i class="ri-send-plane-2-fill"></i> Gửi xác nhận
-          </button>
-        </form>
-      </div>
     </div>
 
     <!-- AUDIO -->
@@ -2489,105 +2408,6 @@
 
         updateTicker();
         requestAnimationFrame(tickerLoop);
-      })();
-
-      // --- RSVP ---
-      (function () {
-        var RSVP_FORM_LINK = "https://forms.gle/YOUR_GOOGLE_FORM_LINK"; // ← Thay link Google Form của bạn
-
-        var rsvpPopup = document.getElementById("rsvp-popup");
-        var rsvpOpen = document.getElementById("openRsvpModal");
-        var rsvpClose = rsvpPopup?.querySelector(".rsvp-close");
-        var rsvpForm = document.getElementById("rsvp-form");
-        var rsvpName = document.getElementById("rsvp-name");
-        var rsvpAttendRadios = document.querySelectorAll(
-          'input[name="rsvp-attend"]',
-        );
-        var rsvpGuestsField = document.getElementById("rsvp-guests-field");
-        var rsvpGuests = document.getElementById("rsvp-guests");
-        var qtyMinus = document.getElementById("rsvp-qty-minus");
-        var qtyPlus = document.getElementById("rsvp-qty-plus");
-
-        // Toggle guests field based on attendance
-        rsvpAttendRadios.forEach(function (radio) {
-          radio.addEventListener("change", function () {
-            if (this.value === "yes") {
-              rsvpGuestsField.classList.remove("hidden");
-            } else {
-              rsvpGuestsField.classList.add("hidden");
-            }
-          });
-        });
-
-        // Quantity buttons
-        qtyMinus?.addEventListener("click", function () {
-          var v = parseInt(rsvpGuests.value, 10);
-          if (v > 1) rsvpGuests.value = v - 1;
-        });
-        qtyPlus?.addEventListener("click", function () {
-          var v = parseInt(rsvpGuests.value, 10);
-          if (v < 20) rsvpGuests.value = v + 1;
-        });
-
-        // Open popup
-        rsvpOpen?.addEventListener("click", function (e) {
-          e.preventDefault();
-          rsvpPopup.classList.add("open");
-          rsvpPopup.setAttribute("aria-hidden", "false");
-          rsvpName.focus();
-        });
-
-        // Close popup
-        function closeRsvp() {
-          rsvpPopup.classList.remove("open");
-          rsvpPopup.setAttribute("aria-hidden", "true");
-        }
-        rsvpClose?.addEventListener("click", closeRsvp);
-        rsvpPopup?.addEventListener("click", function (e) {
-          if (e.target === rsvpPopup) closeRsvp();
-        });
-        document.addEventListener("keydown", function (e) {
-          if (e.key === "Escape" && rsvpPopup.classList.contains("open")) {
-            closeRsvp();
-          }
-        });
-
-        // Submit
-        rsvpForm?.addEventListener("submit", function (e) {
-          e.preventDefault();
-          var name = rsvpName.value.trim();
-          if (!name) return;
-
-          var attend = "yes";
-          rsvpAttendRadios.forEach(function (r) {
-            if (r.checked) attend = r.value;
-          });
-          var guests = attend === "yes" ? parseInt(rsvpGuests.value, 10) : 0;
-
-          // Save to localStorage
-          var rsvpData = JSON.parse(
-            localStorage.getItem("wedding_rsvp") || "[]",
-          );
-          rsvpData.push({
-            name: name,
-            attend: attend,
-            guests: guests,
-            time: Date.now(),
-          });
-          localStorage.setItem("wedding_rsvp", JSON.stringify(rsvpData));
-
-          closeRsvp();
-
-          // Open Google Form in new tab
-          if (RSVP_FORM_LINK && !RSVP_FORM_LINK.includes("YOUR_GOOGLE")) {
-            window.open(RSVP_FORM_LINK, "_blank");
-          }
-
-          alert("Cảm ơn " + name + "! Thông tin của bạn đã được ghi nhận.");
-
-          rsvpForm.reset();
-          rsvpGuests.value = "1";
-        });
       })();
     </script>
   </body>
