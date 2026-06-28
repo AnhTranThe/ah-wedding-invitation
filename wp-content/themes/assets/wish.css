@@ -270,30 +270,22 @@
 .wish-ticker__content {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 8px 0;
-}
-
-@keyframes tickerScroll {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-50%); }
+  padding: 4px 0;
+  will-change: transform;
 }
 .wish-ticker__item {
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 4px;
-  background: #F0BABA;
+  background: #FEFEFE;
   backdrop-filter: blur(4px);
-  opacity: 0.8 !important;
   -webkit-backdrop-filter: blur(4px);
-  
   border-radius: 10px;
-  padding: 6px 12px;
+  padding: 5px 12px;
+  margin-bottom: 4px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  animation: wishStickerIn 0.5s ease forwards;
-  opacity: 0;
-  transform: translateY(16px);
+  flex-shrink: 0;
 }
 .wish-ticker__name {
   font-size: 14px;
@@ -309,20 +301,13 @@
 }
 .wish-ticker__text {
   font-size: 14px;
-  color: #fff;
+  color: #666;
   line-height: 1.3;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   flex: 1;
   min-width: 0;
-}
-
-@keyframes wishStickerIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* --- RSVP Popup --- */
@@ -639,5 +624,6 @@
   }
   .wish-ticker__item {
     padding: 4px 10px;
+    margin-bottom: 3px;
   }
 }

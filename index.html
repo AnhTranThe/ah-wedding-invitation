@@ -2392,8 +2392,11 @@
           }
         });
 
-        // --- Wish Ticker (continuous infinite scroll) ---
+        // --- Wish Ticker (circular smooth infinite scroll) ---
         var tickerContent = document.getElementById("wish-ticker-content");
+        var scrollPos = 0;
+        var lastTime = 0;
+        var speed = 30;
 
         function updateTicker() {
           var wishes = getWishes();
@@ -2403,35 +2406,41 @@
           }
           var recent = wishes.slice(-5);
           var icons = ["🎉","🎊","🎂","🎁","💐","🥂","🍾","✨","🌸","💝","🌟","🎀"];
-          var html = recent
-            .map(function (w) {
-              var icon = icons[Math.floor(Math.random() * icons.length)];
-              return (
-                '<div class="wish-ticker__item">' +
-                '<span class="wish-ticker__name">' +
-                _escapeHtml(w.name) +
-                ':</span>' +
-                '<span class="wish-ticker__icon">' + icon + '</span>' +
-                '<span class="wish-ticker__text">' +
-                _escapeHtml(w.message) +
-                "</span></div>"
-              );
-            })
-            .join("");
-          tickerContent.innerHTML = html + html;
-          var allItems = tickerContent.querySelectorAll(".wish-ticker__item");
-          var half = allItems.length / 2;
-          for (var i = 0; i < half; i++) {
-            allItems[i].style.animationDelay = (half - 1 - i) * 0.15 + "s";
+          tickerContent.innerHTML = recent.map(function (w) {
+            var icon = icons[Math.floor(Math.random() * icons.length)];
+            return '<div class="wish-ticker__item">' +
+              '<span class="wish-ticker__name">' + _escapeHtml(w.name) + ':</span>' +
+              '<span class="wish-ticker__icon">' + icon + '</span>' +
+              '<span class="wish-ticker__text">' + _escapeHtml(w.message) + "</span></div>";
+          }).join("");
+          scrollPos = 0;
+          tickerContent.style.transform = "translateY(0)";
+        }
+
+        function tickerLoop(time) {
+          if (!lastTime) lastTime = time;
+          var delta = (time - lastTime) / 1000;
+          lastTime = time;
+
+          var items = tickerContent.children;
+          if (items.length > 0) {
+            var h = items[0].offsetHeight;
+            if (h > 0) {
+              scrollPos += speed * delta;
+              while (scrollPos >= h) {
+                tickerContent.appendChild(items[0]);
+                scrollPos -= h;
+                h = items[0].offsetHeight;
+              }
+              tickerContent.style.transform = "translateY(-" + scrollPos + "px)";
+            }
           }
-          tickerContent.style.animation = "none";
-          tickerContent.offsetHeight;
-          tickerContent.style.animation =
-            "tickerScroll " + half * 2.5 + "s linear infinite";
-          tickerContent.style.animationDelay = "1.5s";
+
+          requestAnimationFrame(tickerLoop);
         }
 
         updateTicker();
+        requestAnimationFrame(tickerLoop);
       })();
 
       // --- RSVP ---
