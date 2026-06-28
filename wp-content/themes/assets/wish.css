@@ -470,20 +470,17 @@
   position: relative;
   width: 320px;
   height: 350px;
-  clip-path: url(#heartClip);
-  -webkit-clip-path: url(#heartClip);
   z-index: 1;
   animation: heartPulse 2s ease-in-out infinite;
 }
-.timeline-heart__frame::before {
+.timeline-heart__frame::after {
   content: "";
   position: absolute;
-  inset: -6px;
+  inset: -5px;
   clip-path: url(#heartClip);
   -webkit-clip-path: url(#heartClip);
-  background: linear-gradient(135deg, #d6336c, #e84d7a, #f090a0, #d6336c);
-  background-size: 300% 300%;
-  animation: heartBorderGlow 3s ease-in-out infinite;
+  background: #d6336c;
+  box-shadow: 0 0 0 6px #d4a373, 0 6px 30px rgba(0, 0, 0, 0.15);
   z-index: -1;
 }
 @keyframes heartPulse {
@@ -496,21 +493,13 @@
     transform: scale(1.02);
   }
 }
-@keyframes heartBorderGlow {
-  0%, 100% {
-    background-position: 0% 50%;
-    filter: drop-shadow(0 0 8px rgba(214, 51, 108, 0.4));
-  }
-  50% {
-    background-position: 100% 50%;
-    filter: drop-shadow(0 0 20px rgba(214, 51, 108, 0.6));
-  }
-}
 .timeline-heart__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  clip-path: url(#heartClip);
+  -webkit-clip-path: url(#heartClip);
 }
 .timeline-heart__caption {
   text-align: center;
@@ -538,7 +527,7 @@
     height: 220px;
   }
   .timeline-heart .story-date {
-    font-size: 14px;
+    font-size: var(--title-fs);
   }
   .timeline-heart .title {
     font-size: 16px;

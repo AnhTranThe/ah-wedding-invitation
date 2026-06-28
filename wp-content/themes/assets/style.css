@@ -954,7 +954,8 @@ main {
 
 .timeline-body .story-date {
     font-family: var(--title-font);
-    font-size: var(--title-fs)
+    font-size: var(--title-fs);
+    color: #d6336c;
 }
 
 .timeline-body .title {
