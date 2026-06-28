@@ -342,15 +342,13 @@
         <div class="mobile-menu" id="mobile-menu-area">
           <div class="mobile-menu__overlay" onclick="onePageCloseNav()"></div>
           <div class="sidenav">
-            <div
-              class="d-inline-flex align-items-center justify-content-between gap-4"
-            >
-              <a href="index.html" class="mobile-logo-link">
-                <img
-                  src="./wp-content/pic/logo-ah-wedding-light.png"
-                  alt="Thế Anh - Huỳnh Lệ Wedding"
-                  class="m-diff-main-logo"
-                />
+            <div class="sidenav-header">
+               <a href="index.html" class="mobile-logo-link">
+                 <img
+                   src="./wp-content/pic/logo-ah-wedding-dark.png"
+                   alt="Thế Anh - Huỳnh Lệ Wedding"
+                   class="m-diff-main-logo"
+                 />
               </a>
               <button
                 type="button"
@@ -358,25 +356,48 @@
                 aria-label="Close menu"
                 onclick="onePageCloseNav()"
               >
-                &times;
+                <i class="ri-close-fill"></i>
               </button>
             </div>
 
-            <nav class="mobile-nav-links">
-              <a href="index.html#about-section" onclick="onePageCloseNav()"
-                >Giới thiệu</a
-              >
-              <a href="index.html#time-line" onclick="onePageCloseNav()"
-                >Hành Trình</a
-              >
+            <div class="sidenav-divider">
+              <span></span>
+              <i class="ri-heart-3-fill"></i>
+              <span></span>
+            </div>
 
-              <a href="index.html#countdown-section" onclick="onePageCloseNav()"
-                >Sự Kiện</a
+            <nav class="mobile-nav-links">
+              <a href="index.html#about-section" onclick="onePageCloseNav()">
+                <i class="ri-heart-3-line"></i>
+                <span>Giới thiệu</span>
+              </a>
+              <a href="index.html#time-line" onclick="onePageCloseNav()">
+                <i class="ri-map-pin-2-line"></i>
+                <span>Hành Trình</span>
+              </a>
+              <a
+                href="index.html#countdown-section"
+                onclick="onePageCloseNav()"
               >
-              <a href="index.html#album-section" onclick="onePageCloseNav()"
-                >Ảnh Cưới</a
-              >
+                <i class="ri-calendar-event-line"></i>
+                <span>Sự Kiện</span>
+              </a>
+              <a href="index.html#album-section" onclick="onePageCloseNav()">
+                <i class="ri-camera-lens-line"></i>
+                <span>Ảnh Cưới</span>
+              </a>
             </nav>
+
+            <div class="sidenav-footer">
+              <div class="sidenav-bouquet">
+                <span>&#127800;</span>
+                <span>&#127799;</span>
+                <span>&#127801;</span>
+                <span>&#127799;</span>
+                <span>&#127800;</span>
+              </div>
+              <div class="sidenav-bouquet-stem"></div>
+            </div>
           </div>
           <div class="mobile-menu__bar">
             <a href="index.html">
@@ -1806,7 +1827,10 @@
             </div>
 
             <div class="qr-modal__actions">
-              <button class="btn btn-secondary qr-modal__close-btn">
+              <button
+                style="background-color: #d6336c !important"
+                class="btn btn-secondary qr-modal__close-btn"
+              >
                 Đóng
               </button>
             </div>
@@ -2104,11 +2128,11 @@
         preloadBannerThenShowModal();
       }
 
-        if (startBtn) {
-          startBtn.addEventListener("click", function () {
-            audio?.play();
-            toggleAudioBtn?.classList.add("playing");
-            if (welcomeModal) welcomeModal.style.display = "none";
+      if (startBtn) {
+        startBtn.addEventListener("click", function () {
+          audio?.play();
+          toggleAudioBtn?.classList.add("playing");
+          if (welcomeModal) welcomeModal.style.display = "none";
           document.body.style.overflow = "auto";
           if (window.location.hash) {
             setTimeout(function () {
@@ -2405,14 +2429,37 @@
             return;
           }
           var recent = wishes.slice(-5);
-          var icons = ["🎉","🎊","🎂","🎁","💐","🥂","🍾","✨","🌸","💝","🌟","🎀"];
-          tickerContent.innerHTML = recent.map(function (w) {
-            var icon = icons[Math.floor(Math.random() * icons.length)];
-            return '<div class="wish-ticker__item">' +
-              '<span class="wish-ticker__name">' + _escapeHtml(w.name) + ':</span>' +
-              '<span class="wish-ticker__icon">' + icon + '</span>' +
-              '<span class="wish-ticker__text">' + _escapeHtml(w.message) + "</span></div>";
-          }).join("");
+          var icons = [
+            "🎉",
+            "🎊",
+            "🎂",
+            "🎁",
+            "💐",
+            "🥂",
+            "🍾",
+            "✨",
+            "🌸",
+            "💝",
+            "🌟",
+            "🎀",
+          ];
+          tickerContent.innerHTML = recent
+            .map(function (w) {
+              var icon = icons[Math.floor(Math.random() * icons.length)];
+              return (
+                '<div class="wish-ticker__item">' +
+                '<span class="wish-ticker__name">' +
+                _escapeHtml(w.name) +
+                ":</span>" +
+                '<span class="wish-ticker__icon">' +
+                icon +
+                "</span>" +
+                '<span class="wish-ticker__text">' +
+                _escapeHtml(w.message) +
+                "</span></div>"
+              );
+            })
+            .join("");
           scrollPos = 0;
           tickerContent.style.transform = "translateY(0)";
         }
@@ -2432,7 +2479,8 @@
                 scrollPos -= h;
                 h = items[0].offsetHeight;
               }
-              tickerContent.style.transform = "translateY(-" + scrollPos + "px)";
+              tickerContent.style.transform =
+                "translateY(-" + scrollPos + "px)";
             }
           }
 
