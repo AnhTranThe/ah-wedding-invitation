@@ -2017,7 +2017,7 @@
     ></audio>
 
     <button class="toggleAudio">
-      <i class="ri-volume-up-fill"> </i>
+      <i class="treble-clef">&#119070;</i>
     </button>
     <!-- END AUDIO -->
 
@@ -2104,10 +2104,11 @@
         preloadBannerThenShowModal();
       }
 
-      if (startBtn) {
-        startBtn.addEventListener("click", function () {
-          audio?.play();
-          if (welcomeModal) welcomeModal.style.display = "none";
+        if (startBtn) {
+          startBtn.addEventListener("click", function () {
+            audio?.play();
+            toggleAudioBtn?.classList.add("playing");
+            if (welcomeModal) welcomeModal.style.display = "none";
           document.body.style.overflow = "auto";
           if (window.location.hash) {
             setTimeout(function () {
@@ -2162,8 +2163,7 @@
         var videos = document.querySelectorAll("video");
 
         function updateAudioIcon(isMuted) {
-          toggleIcon?.classList.toggle("ri-volume-mute-fill", isMuted);
-          toggleIcon?.classList.toggle("ri-volume-up-fill", !isMuted);
+          toggleAudioBtn?.classList.toggle("playing", !isMuted);
         }
 
         videos.forEach(function (video) {

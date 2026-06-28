@@ -16,33 +16,67 @@
 }
 
 .toggleAudio {
-
     position: fixed;
-
     bottom: 40px;
-
     right: 20px;
-
-    width: 40px;
-
-    height: 40px;
-
-    background: var(--primary-color);
-
+    width: 44px;
+    height: 44px;
+    background: #d6336c;
     border-radius: 50%;
-
     display: inline-flex;
-
     justify-content: center;
-
     align-items: center;
-
     cursor: pointer;
-
+    z-index: 10;
+    border: none;
+    outline: none;
 }
-
 .toggleAudio i {
     color: white;
+    font-size: 24px;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+    font-style: normal;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.toggleAudio i::before {
+    content: '';
+    position: absolute;
+    width: 300%;
+    height: 2px;
+    background: white;
+    transform: rotate(-45deg);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+.toggleAudio:not(.playing) i::before {
+    opacity: 1;
+}
+.toggleAudio::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top-color: rgba(255,255,255,0.7);
+    border-right-color: rgba(255,255,255,0.2);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+.toggleAudio.playing::after {
+    opacity: 1;
+    animation: toggleAudioSpin 0.8s linear infinite;
+}
+.toggleAudio.playing {
+    animation: toggleAudioSpin 3s linear infinite;
+}
+@keyframes toggleAudioSpin {
+    to { transform: rotate(360deg); }
 }
 
 .section-des {
