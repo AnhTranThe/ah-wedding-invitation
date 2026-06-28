@@ -276,36 +276,35 @@
 .wish-ticker__item {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   gap: 4px;
   background: #FEFEFE;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
-  padding: 5px 12px;
+  padding: 10px 12px;
   margin-bottom: 4px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   flex-shrink: 0;
 }
 .wish-ticker__name {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: #d6336c;
-  line-height: 1.3;
+  line-height: 1.4;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 .wish-ticker__icon {
   flex-shrink: 0;
   font-size: 12px;
-  line-height: 1;
+  line-height: 1.4;
 }
 .wish-ticker__text {
-  font-size: 14px;
+  font-size: 13px;
   color: #666;
-  line-height: 1.3;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.4;
+  word-break: break-word;
   flex: 1;
   min-width: 0;
 }
