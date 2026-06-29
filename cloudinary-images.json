@@ -1,0 +1,409 @@
+{
+  "albums": [
+    {
+      "name": "OM.EDIT",
+      "folder": "AH.WEDDING/OM.EDIT",
+      "assets": [
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842426/AH.WEDDING/OM.EDIT/dsc02077_z7t9m6.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02077_z7t9m6",
+          "format": "webp",
+          "width": 7008,
+          "height": 4672
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842437/AH.WEDDING/OM.EDIT/dsc02091_r9lnnr.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02091_r9lnnr",
+          "format": "webp",
+          "width": 10512,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842426/AH.WEDDING/OM.EDIT/dsc02196_wtjm4t.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02196_wtjm4t",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842426/AH.WEDDING/OM.EDIT/dsc02265_armvzd.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02265_armvzd",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842427/AH.WEDDING/OM.EDIT/dsc02269_fndsvf.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02269_fndsvf",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842428/AH.WEDDING/OM.EDIT/dsc02275_etzjdl.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02275_etzjdl",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842428/AH.WEDDING/OM.EDIT/dsc02332_qqbqvu.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02332_qqbqvu",
+          "format": "webp",
+          "width": 4781,
+          "height": 7080
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842427/AH.WEDDING/OM.EDIT/dsc02363_gpyyqr.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02363_gpyyqr",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842429/AH.WEDDING/OM.EDIT/dsc02404_hiyzou.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02404_hiyzou",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842430/AH.WEDDING/OM.EDIT/DSC02436_mygglu.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/DSC02436_mygglu",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842431/AH.WEDDING/OM.EDIT/dsc02460_zxskit.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02460_zxskit",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842431/AH.WEDDING/OM.EDIT/DSC02470_viihvc.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/DSC02470_viihvc",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842432/AH.WEDDING/OM.EDIT/dsc02473_jzn9re.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02473_jzn9re",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842432/AH.WEDDING/OM.EDIT/dsc02504_ys1sqo.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02504_ys1sqo",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842433/AH.WEDDING/OM.EDIT/dsc02521_hnblqp.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02521_hnblqp",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842434/AH.WEDDING/OM.EDIT/dsc02558_j06fr9.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02558_j06fr9",
+          "format": "webp",
+          "width": 7008,
+          "height": 4672
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842434/AH.WEDDING/OM.EDIT/dsc02579_ooldmi.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02579_ooldmi",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1782396485/AH.WEDDING/OM.EDIT/dsc02579_ooldmi_btqctp.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02579_ooldmi_btqctp",
+          "format": "webp",
+          "width": 2797,
+          "height": 4032
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842435/AH.WEDDING/OM.EDIT/dsc02632_qo21bh.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02632_qo21bh",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842435/AH.WEDDING/OM.EDIT/dsc02670_vg5cck.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02670_vg5cck",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842436/AH.WEDDING/OM.EDIT/dsc02720_tzsbbe.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02720_tzsbbe",
+          "format": "webp",
+          "width": 7008,
+          "height": 4672
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842437/AH.WEDDING/OM.EDIT/dsc02759_wpevsu.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02759_wpevsu",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842438/AH.WEDDING/OM.EDIT/dsc02774_lkrkzm.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02774_lkrkzm",
+          "format": "webp",
+          "width": 4595,
+          "height": 6613
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842444/AH.WEDDING/OM.EDIT/dsc02787_g2xsgm.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02787_g2xsgm",
+          "format": "webp",
+          "width": 4556,
+          "height": 6834
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1782396697/AH.WEDDING/OM.EDIT/dsc02836_ogvoel.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02836_ogvoel",
+          "format": "webp",
+          "width": 5797,
+          "height": 4672
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842440/AH.WEDDING/OM.EDIT/dsc02854_pcpxzl.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02854_pcpxzl",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842441/AH.WEDDING/OM.EDIT/dsc02885_jb1mmd.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02885_jb1mmd",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842442/AH.WEDDING/OM.EDIT/dsc02909_whblry.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02909_whblry",
+          "format": "webp",
+          "width": 7008,
+          "height": 4672
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842443/AH.WEDDING/OM.EDIT/dsc02930_jghrru.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02930_jghrru",
+          "format": "webp",
+          "width": 6720,
+          "height": 4480
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842443/AH.WEDDING/OM.EDIT/dsc02947_uitmjs.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02947_uitmjs",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842444/AH.WEDDING/OM.EDIT/dsc02952_dtnzxw.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02952_dtnzxw",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842445/AH.WEDDING/OM.EDIT/dsc02980_dqaz97.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02980_dqaz97",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842445/AH.WEDDING/OM.EDIT/dsc02995_vszi1v.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc02995_vszi1v",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842446/AH.WEDDING/OM.EDIT/dsc03048_xl6qus.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc03048_xl6qus",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842447/AH.WEDDING/OM.EDIT/dsc03133_io4agv.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc03133_io4agv",
+          "format": "webp",
+          "width": 4555,
+          "height": 6833
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842447/AH.WEDDING/OM.EDIT/dsc03286_vw34q6.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc03286_vw34q6",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842448/AH.WEDDING/OM.EDIT/dsc03328_xrelqw.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc03328_xrelqw",
+          "format": "webp",
+          "width": 4535,
+          "height": 6802
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842449/AH.WEDDING/OM.EDIT/dsc03349_qwbczd.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc03349_qwbczd",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842449/AH.WEDDING/OM.EDIT/dsc03374_nxsq1x.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc03374_nxsq1x",
+          "format": "webp",
+          "width": 4672,
+          "height": 7008
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842450/AH.WEDDING/OM.EDIT/dsc03417_mtpj3g.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc03417_mtpj3g",
+          "format": "webp",
+          "width": 4755,
+          "height": 7063
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1781842450/AH.WEDDING/OM.EDIT/dsc03453_uudhm3.webp",
+          "publicId": "AH.WEDDING/OM.EDIT/dsc03453_uudhm3",
+          "format": "webp",
+          "width": 4592,
+          "height": 6888
+        }
+      ]
+    },
+    {
+      "name": "HOPE.EDIT",
+      "folder": "AH.WEDDING/HOPE.EDIT",
+      "assets": []
+    },
+    {
+      "name": "NT.PICS",
+      "folder": "AH.WEDDING/NT.PICS",
+      "assets": []
+    },
+    {
+      "name": "SG.PICS",
+      "folder": "AH.WEDDING/SG.PICS",
+      "assets": []
+    },
+    {
+      "name": "MEMORIES.PICS",
+      "folder": "AH.WEDDING/MEMORIES.PICS",
+      "assets": [
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1782710853/AH.WEDDING/MEMORIES.PICS/1355270C-AE41-4133-86D2-6412721BB53B_fijvmu.webp",
+          "publicId": "AH.WEDDING/MEMORIES.PICS/1355270C-AE41-4133-86D2-6412721BB53B_fijvmu",
+          "format": "webp",
+          "width": 3024,
+          "height": 4032
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1782710854/AH.WEDDING/MEMORIES.PICS/1F1ECD55-EC86-4ADB-BFF0-924D2B93BCB9_plzgib.webp",
+          "publicId": "AH.WEDDING/MEMORIES.PICS/1F1ECD55-EC86-4ADB-BFF0-924D2B93BCB9_plzgib",
+          "format": "webp",
+          "width": 3024,
+          "height": 4032
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1782710858/AH.WEDDING/MEMORIES.PICS/27F5714A-605B-48F1-A41A-D93568FD2280_fyfkz6.webp",
+          "publicId": "AH.WEDDING/MEMORIES.PICS/27F5714A-605B-48F1-A41A-D93568FD2280_fyfkz6",
+          "format": "webp",
+          "width": 1920,
+          "height": 2560
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1782710854/AH.WEDDING/MEMORIES.PICS/41172126-5004-4D00-A10C-0EC53AFECC07_xi29rn.webp",
+          "publicId": "AH.WEDDING/MEMORIES.PICS/41172126-5004-4D00-A10C-0EC53AFECC07_xi29rn",
+          "format": "webp",
+          "width": 4032,
+          "height": 3024
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1782710854/AH.WEDDING/MEMORIES.PICS/44C33DA9-629E-4F51-B5C5-5DDB42F52008_sudksg.webp",
+          "publicId": "AH.WEDDING/MEMORIES.PICS/44C33DA9-629E-4F51-B5C5-5DDB42F52008_sudksg",
+          "format": "webp",
+          "width": 4032,
+          "height": 3024
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1782710854/AH.WEDDING/MEMORIES.PICS/A1DDF897-B01E-471D-85AC-A7F0DAC65F64_htugfv.webp",
+          "publicId": "AH.WEDDING/MEMORIES.PICS/A1DDF897-B01E-471D-85AC-A7F0DAC65F64_htugfv",
+          "format": "webp",
+          "width": 1536,
+          "height": 2048
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1782710855/AH.WEDDING/MEMORIES.PICS/D21255AD-08DD-4629-9EE7-357BCBEC4FE8_eag4fh.webp",
+          "publicId": "AH.WEDDING/MEMORIES.PICS/D21255AD-08DD-4629-9EE7-357BCBEC4FE8_eag4fh",
+          "format": "webp",
+          "width": 3725,
+          "height": 3024
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1782710854/AH.WEDDING/MEMORIES.PICS/IMG_20201013_204002_fo7jt5.webp",
+          "publicId": "AH.WEDDING/MEMORIES.PICS/IMG_20201013_204002_fo7jt5",
+          "format": "webp",
+          "width": 3024,
+          "height": 4032
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1782710855/AH.WEDDING/MEMORIES.PICS/pic-memory-1_yyb7st.webp",
+          "publicId": "AH.WEDDING/MEMORIES.PICS/pic-memory-1_yyb7st",
+          "format": "webp",
+          "width": 2160,
+          "height": 1080
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1782710855/AH.WEDDING/MEMORIES.PICS/pic-memory-2_sm73bl.webp",
+          "publicId": "AH.WEDDING/MEMORIES.PICS/pic-memory-2_sm73bl",
+          "format": "webp",
+          "width": 2560,
+          "height": 1280
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1782710857/AH.WEDDING/MEMORIES.PICS/pic-memory-3_neeo8s.webp",
+          "publicId": "AH.WEDDING/MEMORIES.PICS/pic-memory-3_neeo8s",
+          "format": "webp",
+          "width": 4032,
+          "height": 3024
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1782710857/AH.WEDDING/MEMORIES.PICS/pic-memory-4_u8w2hn.webp",
+          "publicId": "AH.WEDDING/MEMORIES.PICS/pic-memory-4_u8w2hn",
+          "format": "webp",
+          "width": 2560,
+          "height": 1920
+        },
+        {
+          "url": "https://res.cloudinary.com/deneskatf/image/upload/v1782710857/AH.WEDDING/MEMORIES.PICS/pic-memory-6_ghpgqn.webp",
+          "publicId": "AH.WEDDING/MEMORIES.PICS/pic-memory-6_ghpgqn",
+          "format": "webp",
+          "width": 1920,
+          "height": 2560
+        }
+      ]
+    }
+  ]
+}
