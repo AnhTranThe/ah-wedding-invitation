@@ -54,11 +54,20 @@
         color: #aaa;
         font-style: italic;
       }
+      .album-caption {
+        text-align: center;
+        font-size: 1.4em;
+        line-height: 1.75em;
+        color: #d1635b;
+        font-weight: 400;
+        font-family: "Dancing Script", cursive;
+        margin: -4px 0 32px;
+      }
     </style>
   </head>
   <body>
     <div class="gallery-header">
-      <h1>Album Ảnh Cưới</h1>
+      <h1>Our Photobooks</h1>
       <p>Thế Anh & Lệ Huỳnh</p>
       <a href="index.html#album-section" id="backLink">&larr; Quay lại</a>
     </div>
@@ -98,7 +107,7 @@
         return arr;
       }
 
-      function renderAlbum(container, title, imageUrls) {
+      function renderAlbum(container, title, imageUrls, caption) {
         var section = document.createElement("div");
         section.className = "album-section";
         section.innerHTML =
@@ -106,7 +115,8 @@
           title +
           ' <span class="album-count">(' +
           (imageUrls.length || "sắp ra mắt") +
-          ")</span></h2>";
+          ")</span></h2>" +
+          (caption ? '<p class="album-caption">' + caption + "</p>" : "");
 
         if (!imageUrls.length) {
           var placeholder = document.createElement("div");
@@ -156,24 +166,55 @@
               var wedding = [];
               data.albums.forEach(function (album) {
                 if (album.name === "OM.EDIT" || album.name === "HOPE.EDIT") {
-                  wedding = wedding.concat(album.assets.map(function (a) {
-                    return a.url || a;
-                  }));
+                  wedding = wedding.concat(
+                    album.assets.map(function (a) {
+                      return a.url || a;
+                    }),
+                  );
                 }
               });
-              renderAlbum(container, "Album Ảnh Cưới", wedding);
+              renderAlbum(container, "Wedding Albums ", wedding);
 
               // NT.PICS → Ảnh cưới Nha Trang
-              var nt = data.albums.find(function (a) { return a.name === "NT.PICS"; });
-              if (nt) renderAlbum(container, "Ảnh cưới Nha Trang", nt.assets.map(function (a) { return a.url || a; }));
+              var nt = data.albums.find(function (a) {
+                return a.name === "NT.PICS";
+              });
+              if (nt)
+                renderAlbum(
+                  container,
+                  "Ảnh cưới Nha Trang",
+                  nt.assets.map(function (a) {
+                    return a.url || a;
+                  }),
+                );
 
               // SG.PICS → Ảnh cưới Sài Gòn
-              var sg = data.albums.find(function (a) { return a.name === "SG.PICS"; });
-              if (sg) renderAlbum(container, "Ảnh cưới Sài Gòn", sg.assets.map(function (a) { return a.url || a; }));
+              var sg = data.albums.find(function (a) {
+                return a.name === "SG.PICS";
+              });
+              if (sg)
+                renderAlbum(
+                  container,
+                  "Ảnh cưới Sài Gòn",
+                  sg.assets.map(function (a) {
+                    return a.url || a;
+                  }),
+                );
 
-              // MEMORIES.PICS → Ảnh kỉ niệm
-              var memories = data.albums.find(function (a) { return a.name === "MEMORIES.PICS"; });
-              if (memories) renderAlbum(container, "Ảnh kỉ niệm", memories.assets.map(function (a) { return a.url || a; }));
+              // MEMORIES.PICS → Ảnh kỉ niệm (last)
+              var memories = data.albums.find(function (a) {
+                return a.name === "MEMORIES.PICS";
+              });
+              if (memories) {
+                renderAlbum(
+                  container,
+                  "Ảnh kỉ niệm",
+                  memories.assets.map(function (a) {
+                    return a.url || a;
+                  }),
+                  '<i class="font-great-vibe">"Cảm ơn chúng ta đã đồng hành và cùng lưu giữ kỉ niệm"</i>',
+                );
+              }
             }
           })
           .catch(function () {

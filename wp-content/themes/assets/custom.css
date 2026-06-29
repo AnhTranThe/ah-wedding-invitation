@@ -556,8 +556,8 @@
                 }
                 .album-grid-2 {
                   display: grid;
-                  grid-template-columns: repeat(3, 1fr);
-                  gap: 28px;
+                  grid-template-columns: repeat(4, 1fr);
+                  gap: 24px;
                   margin-bottom: 40px;
                 }
                 .album-card-2 {
@@ -610,6 +610,15 @@
                   background: #b82a5a;
                   transform: translateY(-2px);
                   color: #fff;
+                }
+                .album-caption {
+                  text-align: center;
+                  font-size: 1.4em;
+                  line-height: 1.75em;
+                  color: var(--tertiary-color);
+                  font-weight: 400;
+                  font-family: Dancing Script !important;
+                  margin: -20px 0 30px;
                 }
                 @media (max-width: 640px) {
                   .album-grid-2 {
