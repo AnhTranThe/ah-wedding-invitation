@@ -73,6 +73,7 @@
       document
         .getElementById("backLink")
         .addEventListener("click", function (e) {
+          sessionStorage.setItem("fromGallery", "true");
           if (document.referrer && document.referrer.includes("index.html")) {
             e.preventDefault();
             history.back();

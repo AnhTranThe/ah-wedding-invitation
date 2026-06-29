@@ -2029,8 +2029,11 @@
       }
 
       // Show modal only on fresh load, skip when back from gallery
-      if (document.referrer && document.referrer.includes("gallery.html")) {
+      if (sessionStorage.getItem("fromGallery")) {
+        sessionStorage.removeItem("fromGallery");
         document.body.style.overflow = "auto";
+        audio?.play().catch(function(){});
+        toggleAudioBtn?.classList.add("playing");
         if (window.location.hash) {
           setTimeout(function () {
             var el = document.querySelector(window.location.hash);
@@ -2041,6 +2044,11 @@
                 behavior: "smooth",
               });
             }
+          }, 100);
+        }
+      } else {
+        preloadBannerThenShowModal();
+      }
           }, 100);
         }
       } else {
