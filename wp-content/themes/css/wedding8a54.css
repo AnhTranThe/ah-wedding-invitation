@@ -17,7 +17,7 @@
 
 .toggleAudio {
     position: fixed;
-    bottom: 40px;
+    bottom: 20px;
     right: 20px;
     width: 44px;
     height: 44px;
@@ -33,7 +33,7 @@
 }
 .toggleAudio i {
     color: white;
-    font-size: 24px;
+    font-size: 22px;
     line-height: 1;
     position: relative;
     z-index: 1;

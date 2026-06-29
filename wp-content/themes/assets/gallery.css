@@ -71,3 +71,61 @@
           gap: 10px;
         }
       }
+      .album-section {
+        margin-bottom: 48px;
+      }
+      .album-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.6rem;
+        color: #d6336c;
+        margin-bottom: 16px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #f0d5da;
+      }
+      .album-count {
+        font-size: 0.85rem;
+        color: #999;
+        font-weight: 400;
+      }
+      .album-empty {
+        text-align: center;
+        padding: 32px;
+        color: #aaa;
+        font-style: italic;
+      }
+      .album-caption {
+        text-align: center;
+        font-size: 1.4em;
+        line-height: 1.75em;
+        color: #d1635b;
+        font-weight: 400;
+        font-family: "Dancing Script", cursive;
+        margin: -4px 0 32px;
+      }
+      .toggleAudio {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: none;
+        background: #d6336c;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .toggleAudio i {
+        color: #fff;
+        font-size: 22px;
+        font-style: normal;
+      }
+      .toggleAudio.playing {
+        animation: spin 3s linear infinite;
+      }
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }

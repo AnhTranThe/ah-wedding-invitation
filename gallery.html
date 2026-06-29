@@ -4,9 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Album Ảnh Cưới - Thế Anh & Lệ Huỳnh</title>
-
     <link rel="preconnect" href="https://res.cloudinary.com" />
-    <link rel="preconnect" href="https://s3.ap-southeast-1.amazonaws.com" />
 
     <link
       rel="stylesheet"
@@ -31,39 +29,6 @@
         href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
     /></noscript>
     <link rel="stylesheet" href="./wp-content/themes/assets/gallery.css" />
-    <style>
-      .album-section {
-        margin-bottom: 48px;
-      }
-      .album-title {
-        font-family: "Playfair Display", serif;
-        font-size: 1.6rem;
-        color: #d6336c;
-        margin-bottom: 16px;
-        padding-bottom: 8px;
-        border-bottom: 2px solid #f0d5da;
-      }
-      .album-count {
-        font-size: 0.85rem;
-        color: #999;
-        font-weight: 400;
-      }
-      .album-empty {
-        text-align: center;
-        padding: 32px;
-        color: #aaa;
-        font-style: italic;
-      }
-      .album-caption {
-        text-align: center;
-        font-size: 1.4em;
-        line-height: 1.75em;
-        color: #d1635b;
-        font-weight: 400;
-        font-family: "Dancing Script", cursive;
-        margin: -4px 0 32px;
-      }
-    </style>
   </head>
   <body>
     <div class="gallery-header">
@@ -74,11 +39,54 @@
 
     <div class="container" id="galleryContainer"></div>
 
+    <audio
+      src="https://res.cloudinary.com/deneskatf/video/upload/v1782749384/AH.WEDDING/AH.PICS/closetoyou_ttfsxa.mp3"
+      loop
+      id="audio"
+    ></audio>
+    <button class="toggleAudio">
+      <i class="treble-clef">&#119070;</i>
+    </button>
+
     <script
       src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"
       defer
     ></script>
     <script>
+      // Disable DevTools on production (allow on localhost)
+      if (
+        location.hostname !== "localhost" &&
+        location.hostname !== "127.0.0.1"
+      ) {
+        document.addEventListener("contextmenu", (event) =>
+          event.preventDefault(),
+        );
+        document.addEventListener("keydown", function (event) {
+          if (
+            event.keyCode === 123 ||
+            (event.ctrlKey &&
+              event.shiftKey &&
+              (event.keyCode === 73 || event.keyCode === 74)) ||
+            (event.ctrlKey && event.keyCode === 85)
+          ) {
+            event.preventDefault();
+            return false;
+          }
+        });
+        (function () {
+          function debug() {
+            debugger;
+            setTimeout(debug, 50);
+          }
+          debug();
+        })();
+      }
+
+      var audio = document.getElementById("audio");
+      var toggleAudioBtn = document.querySelector(".toggleAudio");
+      audio?.play().catch(function () {});
+      toggleAudioBtn?.classList.add("playing");
+
       document
         .getElementById("backLink")
         .addEventListener("click", function (e) {
