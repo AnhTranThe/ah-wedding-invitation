@@ -472,7 +472,7 @@
   width: 320px;
   height: 350px;
   z-index: 1;
-  animation: heartPulse 2s ease-in-out infinite;
+  /* animation: heartPulse 2s ease-in-out infinite; */
 }
 .timeline-heart__frame::after {
   content: "";
