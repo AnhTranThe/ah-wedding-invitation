@@ -224,24 +224,16 @@
   >
     <div id="welcome-modal">
       <div>
-        <h2
-          style="
-            font-size: 28px;
-            margin-bottom: 20px;
-
-            color: #d6336c;
-          "
-        >
+        <h2 style="font-size:28px;margin-bottom:20px;color:#d6336c;">
           Lời cảm ơn từ đôi Vợ chồng son
         </h2>
-        <p style="font-size: 16px">
+        <p style="font-size:16px">
           Bạn khiến cho ngày đặc biệt của chúng tôi thêm tuyệt vời và đáng nhớ!
         </p>
-        <p style="font-size: 16px; margin-bottom: 30px">
+        <p style="font-size:16px;margin-bottom:30px">
           Chân thành cảm ơn bạn về món quà cưới và sự hiện diện quý giá trong
           ngày vui này.
         </p>
-
         <button id="startButton">Bắt đầu</button>
       </div>
     </div>
@@ -2005,51 +1997,25 @@
     <script src="wp-content/themes/js/albums.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
     <script>
-      // --- Start button + welcome modal ---
-      var startBtn = document.getElementById("startButton");
+      // Welcome modal with 5-minute cooldown
       var audio = document.getElementById("audio");
-      var welcomeModal = document.getElementById("welcome-modal");
       var toggleAudioBtn = document.querySelector(".toggleAudio");
-      var toggleIcon = toggleAudioBtn?.querySelector("i");
+      var startBtn = document.getElementById("startButton");
+      var welcomeModal = document.getElementById("welcome-modal");
 
-      function preloadBannerThenShowModal() {
-        window.scrollTo(0, 0);
-        var bannerImg = document.querySelector(".banner-bg");
-        if (bannerImg) {
-          var img = new Image();
-          img.onload = function () {
-            if (welcomeModal) welcomeModal.style.display = "flex";
-            document.body.style.overflow = "hidden";
-          };
-          img.src = bannerImg.getAttribute("data-src") || bannerImg.src;
-        } else {
-          if (welcomeModal) welcomeModal.style.display = "flex";
-          document.body.style.overflow = "hidden";
-        }
-      }
-
-      // Show modal only on fresh load, skip when back from gallery
-      if (sessionStorage.getItem("fromGallery")) {
-        sessionStorage.removeItem("fromGallery");
-        document.body.style.overflow = "auto";
-        audio?.play().catch(function () {});
+      var lastDismissed = localStorage.getItem("welcomeDismissed");
+      var now = Date.now();
+      if (lastDismissed && now - Number(lastDismissed) < 300000) {
+        audio?.play().catch(function(){});
         toggleAudioBtn?.classList.add("playing");
-        if (window.location.hash) {
-          setTimeout(function () {
-            var el = document.querySelector(window.location.hash);
-            if (el) {
-              var rect = el.getBoundingClientRect();
-              window.scrollTo({
-                top: window.scrollY + rect.top - 20,
-                behavior: "smooth",
-              });
-            }
-          }, 100);
-        }
+      } else {
+        if (welcomeModal) welcomeModal.style.display = "flex";
+        document.body.style.overflow = "hidden";
       }
 
       if (startBtn) {
         startBtn.addEventListener("click", function () {
+          localStorage.setItem("welcomeDismissed", String(Date.now()));
           audio?.play();
           toggleAudioBtn?.classList.add("playing");
           if (welcomeModal) welcomeModal.style.display = "none";
