@@ -2032,7 +2032,7 @@
       if (sessionStorage.getItem("fromGallery")) {
         sessionStorage.removeItem("fromGallery");
         document.body.style.overflow = "auto";
-        audio?.play().catch(function(){});
+        audio?.play().catch(function () {});
         toggleAudioBtn?.classList.add("playing");
         if (window.location.hash) {
           setTimeout(function () {
@@ -2046,13 +2046,6 @@
             }
           }, 100);
         }
-      } else {
-        preloadBannerThenShowModal();
-      }
-          }, 100);
-        }
-      } else {
-        preloadBannerThenShowModal();
       }
 
       if (startBtn) {
@@ -2075,38 +2068,6 @@
           }
         });
       }
-
-      // --- Album data ---
-      var albumData = [
-        {
-          id: "albumOmEdit",
-          class: "glightbox-om-edit",
-          name: "Albums Wedding",
-          images: [
-            "https://res.cloudinary.com/deneskatf/image/upload/v1781842450/AH.WEDDING/OM.EDIT/dsc03417_mtpj3g.webp",
-            "https://res.cloudinary.com/deneskatf/image/upload/v1781842447/AH.WEDDING/OM.EDIT/dsc03286_vw34q6.webp",
-            "https://res.cloudinary.com/deneskatf/image/upload/v1781842444/AH.WEDDING/OM.EDIT/dsc02787_g2xsgm.webp",
-            "https://res.cloudinary.com/deneskatf/image/upload/v1781842442/AH.WEDDING/OM.EDIT/dsc02909_whblry.webp",
-            "https://res.cloudinary.com/deneskatf/image/upload/v1782396485/AH.WEDDING/OM.EDIT/dsc02579_ooldmi_btqctp.webp",
-            "https://res.cloudinary.com/deneskatf/image/upload/v1781842432/AH.WEDDING/OM.EDIT/dsc02504_ys1sqo.webp",
-            "https://res.cloudinary.com/deneskatf/image/upload/v1782396697/AH.WEDDING/OM.EDIT/dsc02836_ogvoel.webp",
-            "https://res.cloudinary.com/deneskatf/image/upload/v1781842443/AH.WEDDING/OM.EDIT/dsc02930_jghrru.webp",
-            "https://res.cloudinary.com/deneskatf/image/upload/v1781842434/AH.WEDDING/OM.EDIT/dsc02558_j06fr9.webp",
-          ],
-        },
-        {
-          id: "albumAnhCuoi1",
-          class: "glightbox-cuoi-1",
-          name: "Ảnh Cưới - Nha Trang",
-          images: [],
-        },
-        {
-          id: "albumAnhCuoi2",
-          class: "glightbox-cuoi-2",
-          name: "Ảnh Cưới - Sài Gòn",
-          images: [],
-        },
-      ];
 
       // --- DOMContentLoaded ---
       document.addEventListener("DOMContentLoaded", function () {
@@ -2200,9 +2161,94 @@
           GLightbox({ selector: "." + glightboxClass });
         }
 
-        albumData.forEach(function (a) {
-          buildAlbum(a.id, a.images, a.class, a.name);
-        });
+        // --- Albums from cloudinary-images.json ---
+        var albumData = [];
+
+        fetch("cloudinary-images.json")
+          .then(function (r) {
+            if (!r.ok) throw new Error("Not found");
+            return r.json();
+          })
+          .then(function (data) {
+            if (!data.albums) return;
+
+            // OM.EDIT + HOPE.EDIT → albumOmEdit
+            var wedding = [];
+            data.albums.forEach(function (a) {
+              if (a.name === "OM.EDIT" || a.name === "HOPE.EDIT") {
+                wedding = wedding.concat(
+                  a.assets.map(function (x) {
+                    return x.url || x;
+                  }),
+                );
+              }
+            });
+            albumData.push({
+              id: "albumOmEdit",
+              class: "glightbox-om-edit",
+              name: "Albums Wedding",
+              images: wedding,
+            });
+
+            // NT.PICS → albumAnhCuoi1
+            var nt = data.albums.find(function (a) {
+              return a.name === "NT.PICS";
+            });
+            albumData.push({
+              id: "albumAnhCuoi1",
+              class: "glightbox-cuoi-1",
+              name: "Ảnh Cưới - Nha Trang",
+              images: nt
+                ? nt.assets.map(function (x) {
+                    return x.url || x;
+                  })
+                : [],
+            });
+
+            // SG.PICS → albumAnhCuoi2
+            var sg = data.albums.find(function (a) {
+              return a.name === "SG.PICS";
+            });
+            albumData.push({
+              id: "albumAnhCuoi2",
+              class: "glightbox-cuoi-2",
+              name: "Ảnh Cưới - Sài Gòn",
+              images: sg
+                ? sg.assets.map(function (x) {
+                    return x.url || x;
+                  })
+                : [],
+            });
+
+            albumData.forEach(function (a) {
+              buildAlbum(a.id, a.images, a.class, a.name);
+            });
+          })
+          .catch(function () {
+            albumData = [
+              {
+                id: "albumOmEdit",
+                class: "glightbox-om-edit",
+                name: "Albums Wedding",
+                images: [],
+              },
+              {
+                id: "albumAnhCuoi1",
+                class: "glightbox-cuoi-1",
+                name: "Ảnh Cưới - Nha Trang",
+                images: [],
+              },
+              {
+                id: "albumAnhCuoi2",
+                class: "glightbox-cuoi-2",
+                name: "Ảnh Cưới - Sài Gòn",
+                images: [],
+              },
+            ];
+            albumData.forEach(function (a) {
+              buildAlbum(a.id, a.images, a.class, a.name);
+            });
+          });
       });
 
       // --- Lazy load ---
