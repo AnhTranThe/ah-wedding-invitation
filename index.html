@@ -224,14 +224,7 @@
   >
     <div id="welcome-modal">
       <div>
-        <h2
-          style="
-            font-size: 28px;
-            margin-bottom: 20px;
-
-            color: #d6336c;
-          "
-        >
+        <h2 style="font-size: 28px; margin-bottom: 20px; color: #d6336c">
           Lời cảm ơn từ đôi Vợ chồng son
         </h2>
         <p style="font-size: 16px">
@@ -241,7 +234,6 @@
           Chân thành cảm ơn bạn về món quà cưới và sự hiện diện quý giá trong
           ngày vui này.
         </p>
-
         <button id="startButton">Bắt đầu</button>
       </div>
     </div>
@@ -585,7 +577,7 @@
           <div class="timeline-item">
             <div class="timeline-media">
               <img
-                data-src="./wp-content/gallery-memories/.jpg"
+                data-src="https://res.cloudinary.com/deneskatf/image/upload/v1782746253/AH.WEDDING/MEMORIES.PICS/IMG_20201013_204002_ljrpli.webp"
                 alt=""
                 width="300"
                 height="300"
@@ -602,6 +594,7 @@
                 Khoảng cách và giãn cách xã hội thử thách tình yêu. Nhưng chính
                 những cuộc gọi, tin nhắn, những chuyến đi gửi đồ hay những lúc
                 đợt dịch bùng lớn thì sự quan tâm lại càng nhiều hơn mỗi ngày.
+                Và hình này là khi hai đứa đón sinh nhật xa nhau.
               </p>
             </div>
           </div>
@@ -634,7 +627,7 @@
           <div class="timeline-item">
             <div class="timeline-media">
               <img
-                data-src="./wp-content/gallery-memories/memory-2023.jpg"
+                data-src="https://res.cloudinary.com/deneskatf/image/upload/v1782746228/AH.WEDDING/MEMORIES.PICS/D21255AD-08DD-4629-9EE7-357BCBEC4FE8_x9gvqh.webp"
                 alt=""
                 width="300"
                 height="300"
@@ -646,7 +639,7 @@
             <div class="timeline-body">
               <span class="story-date"> 2023 </span>
 
-              <span class="title"> Gia đình hai bên chấp thuận</span>
+              <span class="title"> Gia đình hai bên ủng hộ</span>
 
               <p class="timeline-des uk-margin-remove">
                 Gia đình là những viên gạch nhỏ. Mỗi viên là một tình yêu giúp
@@ -658,7 +651,7 @@
           <div class="timeline-item">
             <div class="timeline-media">
               <img
-                data-src="https://res.cloudinary.com/deneskatf/image/upload/v1781974629/pic-memory-3_fcswp6.webp"
+                data-src="https://res.cloudinary.com/deneskatf/image/upload/v1782746246/AH.WEDDING/MEMORIES.PICS/IMG_7716_pqedbc.webp"
                 alt=""
                 width="300"
                 height="300"
@@ -681,7 +674,7 @@
           <div class="timeline-item">
             <div class="timeline-media">
               <img
-                data-src="./wp-content/gallery-memories/memory-2025.JPG"
+                data-src="https://res.cloudinary.com/deneskatf/image/upload/v1782746232/AH.WEDDING/MEMORIES.PICS/IMG_0200_xfiig2.webp"
                 alt=""
                 width="300"
                 height="300"
@@ -715,14 +708,14 @@
           <div class="timeline-item timeline-heart">
             <div class="timeline-heart__frame">
               <img
-                src="https://res.cloudinary.com/deneskatf/image/upload/v1781842442/AH.WEDDING/OM.EDIT/dsc02909_whblry.webp"
+                src="https://res.cloudinary.com/deneskatf/image/upload/v1782747081/AH.WEDDING/MEMORIES.PICS/IMG_4695_qrjmka.webp"
                 alt=""
                 class="timeline-heart__img"
               />
             </div>
             <div class="timeline-heart__caption">
               <span class="story-date"> 2026 </span>
-              <span class="title">Về chung một nhà</span>
+              <span class="title">Cả hai về chung một nhà</span>
             </div>
           </div>
         </div>
@@ -1618,29 +1611,41 @@
         </p>
 
         <div class="album-grid-2" id="albumGrid2">
-          <!-- Album 1: OM.EDIT -->
+          <!-- Album 1: Kỉ Niệm -->
+          <div class="album-card-2" id="albumMemories"></div>
+
+          <!-- Album 2: OM.EDIT -->
           <div class="album-card-2" id="albumOmEdit">
             <a
               href="https://res.cloudinary.com/deneskatf/image/upload/v1781842450/AH.WEDDING/OM.EDIT/dsc03417_mtpj3g.webp"
               class="glightbox-om-edit"
             >
-              <img
-                src="https://res.cloudinary.com/deneskatf/image/upload/v1781842450/AH.WEDDING/OM.EDIT/dsc03417_mtpj3g.webp"
-                alt="OM EDIT"
-                class="album-cover"
-              />
+              <div class="album-cover-wrap">
+                <img
+                  src="https://res.cloudinary.com/deneskatf/image/upload/v1781842450/AH.WEDDING/OM.EDIT/dsc03417_mtpj3g.webp"
+                  alt="OM EDIT"
+                  class="album-cover"
+                />
+                <div class="album-overlay"><span>Nhấn xem</span></div>
+              </div>
             </a>
             <div class="album-info">
               <h3 class="album-name">Albums Wedding</h3>
             </div>
           </div>
 
-          <!-- Album 2: Ảnh Cưới Phần 1 -->
+          <!-- Album 3: Ảnh Cưới Phần 1 -->
           <div class="album-card-2" id="albumAnhCuoi1"></div>
 
-          <!-- Album 3: Ảnh Cưới Phần 2 -->
+          <!-- Album 4: Ảnh Cưới Phần 2 -->
           <div class="album-card-2" id="albumAnhCuoi2"></div>
         </div>
+
+        <p class="album-caption">
+          <i class="font-great-vibe"
+            >"Cảm ơn chúng ta đã đồng hành và cùng lưu giữ kỉ niệm"</i
+          >
+        </p>
 
         <div class="album-btn-wrapper">
           <a href="gallery.html" class="btn-view-all">Xem tất cả ảnh</a>
@@ -2005,51 +2010,25 @@
     <script src="wp-content/themes/js/albums.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
     <script>
-      // --- Start button + welcome modal ---
-      var startBtn = document.getElementById("startButton");
+      // Welcome modal with 5-minute cooldown
       var audio = document.getElementById("audio");
-      var welcomeModal = document.getElementById("welcome-modal");
       var toggleAudioBtn = document.querySelector(".toggleAudio");
-      var toggleIcon = toggleAudioBtn?.querySelector("i");
+      var startBtn = document.getElementById("startButton");
+      var welcomeModal = document.getElementById("welcome-modal");
 
-      function preloadBannerThenShowModal() {
-        window.scrollTo(0, 0);
-        var bannerImg = document.querySelector(".banner-bg");
-        if (bannerImg) {
-          var img = new Image();
-          img.onload = function () {
-            if (welcomeModal) welcomeModal.style.display = "flex";
-            document.body.style.overflow = "hidden";
-          };
-          img.src = bannerImg.getAttribute("data-src") || bannerImg.src;
-        } else {
-          if (welcomeModal) welcomeModal.style.display = "flex";
-          document.body.style.overflow = "hidden";
-        }
-      }
-
-      // Show modal only on fresh load, skip when back from gallery
-      if (sessionStorage.getItem("fromGallery")) {
-        sessionStorage.removeItem("fromGallery");
-        document.body.style.overflow = "auto";
+      var lastDismissed = localStorage.getItem("welcomeDismissed");
+      var now = Date.now();
+      if (lastDismissed && now - Number(lastDismissed) < 300000) {
         audio?.play().catch(function () {});
         toggleAudioBtn?.classList.add("playing");
-        if (window.location.hash) {
-          setTimeout(function () {
-            var el = document.querySelector(window.location.hash);
-            if (el) {
-              var rect = el.getBoundingClientRect();
-              window.scrollTo({
-                top: window.scrollY + rect.top - 20,
-                behavior: "smooth",
-              });
-            }
-          }, 100);
-        }
+      } else {
+        if (welcomeModal) welcomeModal.style.display = "flex";
+        document.body.style.overflow = "hidden";
       }
 
       if (startBtn) {
         startBtn.addEventListener("click", function () {
+          localStorage.setItem("welcomeDismissed", String(Date.now()));
           audio?.play();
           toggleAudioBtn?.classList.add("playing");
           if (welcomeModal) welcomeModal.style.display = "none";
@@ -2139,25 +2118,35 @@
             '" class="' +
             glightboxClass +
             '">' +
+            '<div class="album-cover-wrap">' +
             '<img src="' +
             images[0] +
             '" alt="' +
             albumName +
             '" class="album-cover" />' +
+            '<div class="album-overlay"><span>Nhấn xem</span></div>' +
+            "</div>" +
             '<div class="album-info"><h3 class="album-name">' +
             albumName +
             '</h3><p class="album-count">' +
             images.length +
             " ảnh</p></div>" +
-            "</a>";
-          container.innerHTML = html;
-          for (var i = 1; i < images.length; i++) {
-            var a = document.createElement("a");
-            a.href = images[i];
-            a.className = glightboxClass;
-            a.style.display = "none";
-            container.appendChild(a);
+            "</a>" +
+            '<div class="album-thumbs">';
+          for (var i = 0; i < images.length; i++) {
+            html +=
+              '<a href="' +
+              images[i] +
+              '" class="' +
+              glightboxClass +
+              '">' +
+              '<img src="' +
+              images[i] +
+              '" alt="" loading="lazy" />' +
+              "</a>";
           }
+          html += "</div>";
+          container.innerHTML = html;
           GLightbox({ selector: "." + glightboxClass });
         }
 
@@ -2186,7 +2175,7 @@
             albumData.push({
               id: "albumOmEdit",
               class: "glightbox-om-edit",
-              name: "Albums Wedding",
+              name: "Pre Wedding Albums ",
               images: wedding,
             });
 
@@ -2197,7 +2186,7 @@
             albumData.push({
               id: "albumAnhCuoi1",
               class: "glightbox-cuoi-1",
-              name: "Ảnh Cưới - Nha Trang",
+              name: "Nha Trang's Wedding Albums",
               images: nt
                 ? nt.assets.map(function (x) {
                     return x.url || x;
@@ -2212,9 +2201,24 @@
             albumData.push({
               id: "albumAnhCuoi2",
               class: "glightbox-cuoi-2",
-              name: "Ảnh Cưới - Sài Gòn",
+              name: "SaiGon's Wedding Albums",
               images: sg
                 ? sg.assets.map(function (x) {
+                    return x.url || x;
+                  })
+                : [],
+            });
+
+            // MEMORIES.PICS → albumMemories
+            var memories = data.albums.find(function (a) {
+              return a.name === "MEMORIES.PICS";
+            });
+            albumData.push({
+              id: "albumMemories",
+              class: "glightbox-memories",
+              name: "Memorable Moments",
+              images: memories
+                ? memories.assets.map(function (x) {
                     return x.url || x;
                   })
                 : [],
@@ -2242,6 +2246,12 @@
                 id: "albumAnhCuoi2",
                 class: "glightbox-cuoi-2",
                 name: "Ảnh Cưới - Sài Gòn",
+                images: [],
+              },
+              {
+                id: "albumMemories",
+                class: "glightbox-memories",
+                name: "Hình Kỉ Niệm",
                 images: [],
               },
             ];
