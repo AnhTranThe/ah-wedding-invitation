@@ -31,6 +31,30 @@
         href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
     /></noscript>
     <link rel="stylesheet" href="./wp-content/themes/assets/gallery.css" />
+    <style>
+      .album-section {
+        margin-bottom: 48px;
+      }
+      .album-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.6rem;
+        color: #d6336c;
+        margin-bottom: 16px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #f0d5da;
+      }
+      .album-count {
+        font-size: 0.85rem;
+        color: #999;
+        font-weight: 400;
+      }
+      .album-empty {
+        text-align: center;
+        padding: 32px;
+        color: #aaa;
+        font-style: italic;
+      }
+    </style>
   </head>
   <body>
     <div class="gallery-header">
@@ -39,14 +63,13 @@
       <a href="index.html#album-section" id="backLink">&larr; Quay lại</a>
     </div>
 
-    <div class="gallery-grid" id="galleryGrid"></div>
+    <div class="container" id="galleryContainer"></div>
 
     <script
       src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"
       defer
     ></script>
     <script>
-      // --- Back link ---
       document
         .getElementById("backLink")
         .addEventListener("click", function (e) {
@@ -55,31 +78,6 @@
             history.back();
           }
         });
-
-      // --- Image data ---
-      var allImages = [
-        "https://res.cloudinary.com/deneskatf/image/upload/v1781842450/AH.WEDDING/OM.EDIT/dsc03417_mtpj3g.webp",
-        "https://res.cloudinary.com/deneskatf/image/upload/v1781842447/AH.WEDDING/OM.EDIT/dsc03286_vw34q6.webp",
-        "https://res.cloudinary.com/deneskatf/image/upload/v1781842444/AH.WEDDING/OM.EDIT/dsc02787_g2xsgm.webp",
-        "https://res.cloudinary.com/deneskatf/image/upload/v1781842442/AH.WEDDING/OM.EDIT/dsc02909_whblry.webp",
-        "https://res.cloudinary.com/deneskatf/image/upload/v1782396485/AH.WEDDING/OM.EDIT/dsc02579_ooldmi_btqctp.webp",
-        "https://res.cloudinary.com/deneskatf/image/upload/v1781842432/AH.WEDDING/OM.EDIT/dsc02504_ys1sqo.webp",
-        "https://res.cloudinary.com/deneskatf/image/upload/v1782396697/AH.WEDDING/OM.EDIT/dsc02836_ogvoel.webp",
-        "https://res.cloudinary.com/deneskatf/image/upload/v1781842443/AH.WEDDING/OM.EDIT/dsc02930_jghrru.webp",
-        "https://res.cloudinary.com/deneskatf/image/upload/v1781842434/AH.WEDDING/OM.EDIT/dsc02558_j06fr9.webp",
-        "https://s3.ap-southeast-1.amazonaws.com/tynab.wedding/image/8728.webp",
-        "https://s3.ap-southeast-1.amazonaws.com/tynab.wedding/image/8867.webp",
-        "https://s3.ap-southeast-1.amazonaws.com/tynab.wedding/image/8742.webp",
-        "https://s3.ap-southeast-1.amazonaws.com/tynab.wedding/image/8979.webp",
-        "https://s3.ap-southeast-1.amazonaws.com/tynab.wedding/image/8924.webp",
-        "https://s3.ap-southeast-1.amazonaws.com/tynab.wedding/image/9001.webp",
-        "https://s3.ap-southeast-1.amazonaws.com/tynab.wedding/image/9043.webp",
-        "https://s3.ap-southeast-1.amazonaws.com/tynab.wedding/image/9255.webp",
-        "https://s3.ap-southeast-1.amazonaws.com/tynab.wedding/image/9616.webp",
-        "https://s3.ap-southeast-1.amazonaws.com/tynab.wedding/image/9514.webp",
-        "https://s3.ap-southeast-1.amazonaws.com/tynab.wedding/image/9362.webp",
-        "https://s3.ap-southeast-1.amazonaws.com/tynab.wedding/image/9554.webp",
-      ];
 
       function thumbnailUrl(url) {
         var idx = url.indexOf("upload/v");
@@ -99,12 +97,32 @@
         return arr;
       }
 
-      // --- Build gallery (thumbnails + full-res on click) ---
-      document.addEventListener("DOMContentLoaded", function () {
-        shuffle(allImages);
-        var grid = document.getElementById("galleryGrid");
+      function renderAlbum(container, title, imageUrls) {
+        var section = document.createElement("div");
+        section.className = "album-section";
+        section.innerHTML =
+          '<h2 class="album-title">' +
+          title +
+          ' <span class="album-count">(' +
+          (imageUrls.length || "sắp ra mắt") +
+          ")</span></h2>";
 
-        allImages.forEach(function (url) {
+        if (!imageUrls.length) {
+          var placeholder = document.createElement("div");
+          placeholder.className = "album-empty";
+          placeholder.style.cssText =
+            "text-align:center;padding:48px 32px;color:#ccc;font-style:italic;border:2px dashed #e8d5da;border-radius:16px;";
+          placeholder.innerHTML =
+            '<span style="font-size:2rem;display:block;margin-bottom:8px">📸</span>COMING SOON';
+          section.appendChild(placeholder);
+          container.appendChild(section);
+          return;
+        }
+
+        var grid = document.createElement("div");
+        grid.className = "gallery-grid";
+
+        imageUrls.forEach(function (url) {
           var a = document.createElement("a");
           a.href = url;
           a.className = "glightbox-gallery";
@@ -118,7 +136,58 @@
           grid.appendChild(a);
         });
 
-        GLightbox({ selector: ".glightbox-gallery" });
+        section.appendChild(grid);
+        container.appendChild(section);
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var container = document.getElementById("galleryContainer");
+
+        // Fetch Cloudinary albums
+        fetch("cloudinary-images.json")
+          .then(function (r) {
+            if (!r.ok) throw new Error("Not found");
+            return r.json();
+          })
+          .then(function (data) {
+            if (data.albums) {
+              // Merge OM.EDIT + HOPE.EDIT → Ảnh Cưới
+              var wedding = [];
+              data.albums.forEach(function (album) {
+                if (album.name === "OM.EDIT" || album.name === "HOPE.EDIT") {
+                  wedding = wedding.concat(album.assets.map(function (a) {
+                    return a.url || a;
+                  }));
+                }
+              });
+              renderAlbum(container, "Album Ảnh Cưới", wedding);
+
+              // NT.PICS → Ảnh cưới Nha Trang
+              var nt = data.albums.find(function (a) { return a.name === "NT.PICS"; });
+              if (nt) renderAlbum(container, "Ảnh cưới Nha Trang", nt.assets.map(function (a) { return a.url || a; }));
+
+              // SG.PICS → Ảnh cưới Sài Gòn
+              var sg = data.albums.find(function (a) { return a.name === "SG.PICS"; });
+              if (sg) renderAlbum(container, "Ảnh cưới Sài Gòn", sg.assets.map(function (a) { return a.url || a; }));
+
+              // MEMORIES.PICS → Ảnh kỉ niệm
+              var memories = data.albums.find(function (a) { return a.name === "MEMORIES.PICS"; });
+              if (memories) renderAlbum(container, "Ảnh kỉ niệm", memories.assets.map(function (a) { return a.url || a; }));
+            }
+          })
+          .catch(function () {
+            // Fallback: show a message
+            var msg = document.createElement("p");
+            msg.className = "album-empty";
+            msg.textContent = "Không thể tải album ảnh.";
+            container.appendChild(msg);
+          })
+          .finally(function () {
+            // Init GLightbox after all images are added
+            if (typeof GLightbox !== "undefined") {
+              GLightbox({ selector: ".glightbox-gallery" });
+            }
+          });
       });
     </script>
   </body>
