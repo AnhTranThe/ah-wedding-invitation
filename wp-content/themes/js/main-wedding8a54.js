@@ -106,8 +106,7 @@ var invitationSlider = new Swiper(".invitation-card-slider", {
 
 //AUDIO
 $(".toggleAudio").on("click", function () {
-  let icon = $(this).find("i");
-  icon.toggleClass("ri-volume-mute-fill ri-volume-up-fill");
   let audio = $("#audio")[0];
   audio.paused ? audio.play() : audio.pause();
+  $(this).toggleClass("playing");
 });

@@ -954,7 +954,8 @@ main {
 
 .timeline-body .story-date {
     font-family: var(--title-font);
-    font-size: var(--title-fs)
+    font-size: var(--title-fs);
+    color: #d6336c;
 }
 
 .timeline-body .title {
@@ -973,13 +974,15 @@ main {
 .count-down {
     background: var(--primary-color);
     padding: 20px;
-    border-radius: 28px 28px 0 0;
+    border-radius: 28px 28px 28px 28px;
     display: flex;
     flex-direction: column;
     align-items: center;
     color: var(--text-white);
     background-repeat: no-repeat;
     background-size: cover;
+    max-width: 1180px;
+    margin: 0 auto;
 }
 
 .count-down .section-title {
@@ -1373,7 +1376,7 @@ main {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
+    object-position: center;
     z-index: -1;
 }
 
