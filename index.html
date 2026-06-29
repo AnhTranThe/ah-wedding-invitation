@@ -708,7 +708,7 @@
           <div class="timeline-item timeline-heart">
             <div class="timeline-heart__frame">
               <img
-                src="https://res.cloudinary.com/deneskatf/image/upload/v1782747081/AH.WEDDING/MEMORIES.PICS/IMG_4695_qrjmka.webp"
+                src="https://res.cloudinary.com/deneskatf/image/upload/v1782752289/AH.WEDDING/MEMORIES.PICS/1782748984142_4911482756942926314_4911482756942926314_29db2fd3b09f8b8a4b376f78da711d64_jqgrjv.webp"
                 alt=""
                 class="timeline-heart__img"
               />
@@ -2016,7 +2016,7 @@
       var startBtn = document.getElementById("startButton");
       var welcomeModal = document.getElementById("welcome-modal");
 
-      var lastDismissed = localStorage.getItem("welcomeDismissed");
+      var lastDismissed = sessionStorage.getItem("welcomeDismissed");
       var now = Date.now();
       if (lastDismissed && now - Number(lastDismissed) < 300000) {
         audio?.play().catch(function () {});
@@ -2028,7 +2028,7 @@
 
       if (startBtn) {
         startBtn.addEventListener("click", function () {
-          localStorage.setItem("welcomeDismissed", String(Date.now()));
+          sessionStorage.setItem("welcomeDismissed", String(Date.now()));
           audio?.play();
           toggleAudioBtn?.classList.add("playing");
           if (welcomeModal) welcomeModal.style.display = "none";
