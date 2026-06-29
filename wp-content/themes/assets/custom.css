@@ -578,6 +578,32 @@
                   object-fit: cover;
                   display: block;
                 }
+                .album-cover-wrap {
+                  position: relative;
+                  overflow: hidden;
+                }
+                .album-overlay {
+                  position: absolute;
+                  inset: 0;
+                  background: rgba(0,0,0,0.1);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  opacity: 0;
+                  transition: opacity 0.3s;
+                }
+                .album-card-2:hover .album-overlay {
+                  opacity: 1;
+                }
+                .album-overlay span {
+                  color: #fff;
+                  font-size: 1.1rem;
+                  font-weight: 600;
+                  background: rgba(214,51,108,0.85);
+                  padding: 8px 20px;
+                  border-radius: 30px;
+                  font-family: 'Be Vietnam Pro', sans-serif;
+                }
                 .album-card-2 .album-info {
                   padding: 20px 22px;
                 }

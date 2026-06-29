@@ -1619,11 +1619,14 @@
               href="https://res.cloudinary.com/deneskatf/image/upload/v1781842450/AH.WEDDING/OM.EDIT/dsc03417_mtpj3g.webp"
               class="glightbox-om-edit"
             >
-              <img
-                src="https://res.cloudinary.com/deneskatf/image/upload/v1781842450/AH.WEDDING/OM.EDIT/dsc03417_mtpj3g.webp"
-                alt="OM EDIT"
-                class="album-cover"
-              />
+              <div class="album-cover-wrap">
+                <img
+                  src="https://res.cloudinary.com/deneskatf/image/upload/v1781842450/AH.WEDDING/OM.EDIT/dsc03417_mtpj3g.webp"
+                  alt="OM EDIT"
+                  class="album-cover"
+                />
+                <div class="album-overlay"><span>Nhấn xem</span></div>
+              </div>
             </a>
             <div class="album-info">
               <h3 class="album-name">Albums Wedding</h3>
@@ -2114,11 +2117,14 @@
             '" class="' +
             glightboxClass +
             '">' +
+            '<div class="album-cover-wrap">' +
             '<img src="' +
             images[0] +
             '" alt="' +
             albumName +
             '" class="album-cover" />' +
+            '<div class="album-overlay"><span>Nhấn xem</span></div>' +
+            "</div>" +
             '<div class="album-info"><h3 class="album-name">' +
             albumName +
             '</h3><p class="album-count">' +
