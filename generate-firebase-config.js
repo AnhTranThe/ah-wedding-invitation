@@ -41,11 +41,15 @@ if (missing.length) {
   console.error("Missing Firebase config:", missing.join(", "));
   process.exitCode = 1;
 } else {
-  const outPath = resolve(
-    __dirname,
-    "wp-content/themes/js/firebase-config.js",
+  const htmlPath = resolve(__dirname, "index.html");
+  let html = readFileSync(htmlPath, "utf-8");
+
+  const configJson = JSON.stringify(config);
+  html = html.replace(
+    /\/\*FIREBASE_CONFIG_START\*\/[\s\S]*?\/\*FIREBASE_CONFIG_END\*\//,
+    `/*FIREBASE_CONFIG_START*/${configJson}/*FIREBASE_CONFIG_END*/`,
   );
-  const content = `firebase.initializeApp(${JSON.stringify(config, null, 2)});\n`;
-  writeFileSync(outPath, content);
-  console.log("Generated " + outPath);
+
+  writeFileSync(htmlPath, html);
+  console.log("Firebase config injected into index.html");
 }

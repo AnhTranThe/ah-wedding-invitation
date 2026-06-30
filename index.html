@@ -2001,7 +2001,20 @@
     <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
-    <script src="wp-content/themes/js/firebase-config.js"></script>
+    <script>
+      firebase.initializeApp(
+        /*FIREBASE_CONFIG_START*/ {
+          apiKey: "AIzaSyCrknoxnXeXnMYcsHUvSPyHNTqP8hNT-F4",
+          authDomain: "ah-wedding.firebaseapp.com",
+          databaseURL:
+            "https://ah-wedding-default-rtdb.asia-southeast1.firebasedatabase.app",
+          projectId: "ah-wedding",
+          storageBucket: "ah-wedding.firebasestorage.app",
+          messagingSenderId: "596609270044",
+          appId: "1:596609270044:web:2c72aee8effd0e4661bad9",
+        } /*FIREBASE_CONFIG_END*/,
+      );
+    </script>
     <script>
       // Disable DevTools on production (allow on localhost)
       if (
