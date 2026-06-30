@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Album Ảnh Cưới - Thế Anh & Lệ Huỳnh</title>
     <link rel="preconnect" href="https://res.cloudinary.com" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
 
     <link
       rel="stylesheet"
@@ -108,7 +109,7 @@
       function thumbnailUrl(url) {
         var idx = url.indexOf("upload/v");
         if (idx !== -1) {
-          return url.slice(0, idx + 7) + "w_400,c_fill/" + url.slice(idx + 7);
+          return url.slice(0, idx + 7) + "f_auto,q_auto,dpr_auto,w_400,c_fill/" + url.slice(idx + 7);
         }
         return url;
       }
