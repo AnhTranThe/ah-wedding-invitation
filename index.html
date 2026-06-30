@@ -2007,7 +2007,15 @@
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
     <script>
+      window.__FIREBASE_CONFIG__ = null;
+    </script>
+    <script>
       async function initFirebase() {
+        var config = window.__FIREBASE_CONFIG__;
+        if (config) {
+          firebase.initializeApp(config);
+          return true;
+        }
         try {
           var res = await fetch("wp-content/themes/js/firebase-config.json");
           if (!res.ok) throw new Error("Not found");

@@ -47,4 +47,15 @@ if (missing.length) {
   );
   writeFileSync(outPath, JSON.stringify(config, null, 2) + "\n");
   console.log("Generated " + outPath);
+
+  if (process.argv.includes("--ci")) {
+    const htmlPath = resolve(__dirname, "index.html");
+    let html = readFileSync(htmlPath, "utf-8");
+    html = html.replace(
+      /window\.__FIREBASE_CONFIG__\s*=\s*null/,
+      "window.__FIREBASE_CONFIG__ = " + JSON.stringify(config),
+    );
+    writeFileSync(htmlPath, html);
+    console.log("Injected config into index.html");
+  }
 }
