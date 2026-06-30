@@ -1,4 +1,5 @@
 .env
 node_modules/
+dist/
 cloudinary-urls.txt
 wp-content/themes/js/firebase-config.json

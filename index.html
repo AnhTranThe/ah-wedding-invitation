@@ -6,15 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="./wp-content//pic/favicon.png" />
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
-    <link rel="dns-prefetch" href="//unpkg.com" />
+    <link rel="dns-prefetch" href="//www.gstatic.com" />
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
     <link
       rel="alternate"
       type="application/rss+xml"
       title="Wedding Thế Anh & Lệ Huỳnh &raquo;"
     />
     <link rel="stylesheet" href="wp-content/themes/assets/body.css" />
-    <link rel="stylesheet" href="wp-includes/css/style.min380f.css" />
-
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js"
       async
@@ -24,8 +23,12 @@
       rel="stylesheet"
       id="uikit-css"
       href="wp-content/themes/css/uikit.min8a54.css"
-      media="all"
+      media="print"
+      onload="this.media = 'all'"
     />
+    <noscript
+      ><link rel="stylesheet" href="wp-content/themes/css/uikit.min8a54.css"
+    /></noscript>
     <link
       rel="stylesheet"
       id="reset uikit-css"
@@ -126,11 +129,27 @@
       href="wp-content/themes/css/theme8a54.css"
       media="all"
     />
-    <link rel="stylesheet" href="wp-content/themes/assets/custom.css" />
+    <link
+      rel="stylesheet"
+      href="wp-content/themes/assets/custom.css"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <noscript
+      ><link rel="stylesheet" href="wp-content/themes/assets/custom.css"
+    /></noscript>
+    <link
+      rel="preload"
+      as="image"
+      href="https://res.cloudinary.com/deneskatf/image/upload/f_auto,q_auto/v1781974329/dsc02975_mtuhmk.webp"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://res.cloudinary.com" />
     <link rel="preconnect" href="https://s3.ap-southeast-1.amazonaws.com" />
+    <link rel="preconnect" href="https://www.gstatic.com" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Be+Vietnam+Pro:wght@300;400;500&display=swap"
       rel="stylesheet"
@@ -147,23 +166,12 @@
     <link
       rel="stylesheet"
       href="wp-content/themes/assets/wish.css"
-      media="all"
+      media="print"
+      onload="this.media = 'all'"
     />
-
-    <script
-      src="wp-includes/js/jquery/jquery.minf43b.js"
-      id="jquery-core-js"
-    ></script>
-
-    <script
-      src="wp-includes/js/jquery/jquery-migrate.min5589.js"
-      id="jquery-migrate-js"
-    ></script>
-
-    <script
-      src="wp-content/themes/js/jquery.min8a54.js"
-      id="Jquery-js"
-    ></script>
+    <noscript
+      ><link rel="stylesheet" href="wp-content/themes/assets/wish.css"
+    /></noscript>
 
     <link rel="https://api.w.org/" href="https://thiepdientu.com.vn/wp-json/" />
 
@@ -175,7 +183,15 @@
 
     <meta name="msapplication-TileImage" content="wp-content/pic/favicon.png" />
 
-    <link rel="stylesheet" href="wp-content/themes/assets/style.css" />
+    <link
+      rel="stylesheet"
+      href="wp-content/themes/assets/style.css"
+      media="print"
+      onload="this.media = 'all'"
+    />
+    <noscript
+      ><link rel="stylesheet" href="wp-content/themes/assets/style.css"
+    /></noscript>
 
     <link
       rel="stylesheet"
@@ -1960,6 +1976,7 @@
     </button>
     <!-- END AUDIO -->
 
+    <script src="wp-content/themes/js/jquery.min8a54.js" id="Jquery-js" defer="defer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script
@@ -1971,19 +1988,13 @@
       src="wp-content/themes/js/uikit.min8a54.js"
       id="uikit js-js"
     ></script>
-    <script
-      src="wp-content/themes/js/uikit-icons.min8a54.js"
-      id="uikit icon-js"
-    ></script>
+
     <script src="wp-content/themes/js/aos8a54.js" id="aos js-js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js?ver=1.0.0"
       id="swiper slide-js"
     ></script>
-    <script
-      src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js?ver=1.0.0"
-      id="scrollrevea-js"
-    ></script>
+
     <script
       src="wp-content/themes/js/headerMenu.js"
       id="header menu-js"
@@ -1992,12 +2003,7 @@
       src="wp-content/themes/js/main-wedding8a54.js"
       id="main wedding-js"
     ></script>
-    <script
-      src="wp-includes/js/comment-reply.min380f.js"
-      id="comment-reply-js"
-      async
-      data-wp-strategy="async"
-    ></script>
+
     <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
@@ -2149,11 +2155,19 @@
         });
 
         // Album
+        function thumbUrl(url) {
+          var idx = url.indexOf("upload/v");
+          if (idx !== -1) {
+            return url.slice(0, idx + 7) + "f_auto,q_auto,dpr_auto,w_400,c_fill/" + url.slice(idx + 7);
+          }
+          return url;
+        }
+
         function buildAlbum(containerId, images, glightboxClass, albumName) {
           var container = document.getElementById(containerId);
           if (!images.length) {
             container.innerHTML =
-              '<div class="album-cover coming-soon" style="display:flex;align-items:center;justify-content:center;aspect-ratio:4/3;background:url(https://res.cloudinary.com/deneskatf/image/upload/v1781842450/AH.WEDDING/OM.EDIT/dsc03417_mtpj3g.webp) center/cover;color:#fff;font-size:1.2rem;font-weight:600;text-shadow:0 2px 8px rgba(0,0,0,0.4);position:relative"><span style="background:rgba(0,0,0,0.3);padding:10px 24px;border-radius:30px;backdrop-filter:blur(4px)">COMING SOON</span></div>' +
+              '<div class="album-cover coming-soon" style="display:flex;align-items:center;justify-content:center;aspect-ratio:4/3;background:url(https://res.cloudinary.com/deneskatf/image/upload/f_auto,q_auto/v1781842450/AH.WEDDING/OM.EDIT/dsc03417_mtpj3g.webp) center/cover;color:#fff;font-size:1.2rem;font-weight:600;text-shadow:0 2px 8px rgba(0,0,0,0.4);position:relative"><span style="background:rgba(0,0,0,0.3);padding:10px 24px;border-radius:30px;backdrop-filter:blur(4px)">COMING SOON</span></div>' +
               '<div class="album-info"><h3 class="album-name">' +
               albumName +
               "</h3></div>";
@@ -2167,7 +2181,7 @@
             '">' +
             '<div class="album-cover-wrap">' +
             '<img src="' +
-            images[0] +
+            thumbUrl(images[0]) +
             '" alt="' +
             albumName +
             '" class="album-cover" />' +
@@ -2188,7 +2202,7 @@
               glightboxClass +
               '">' +
               '<img src="' +
-              images[i] +
+              thumbUrl(images[i]) +
               '" alt="" loading="lazy" />' +
               "</a>";
           }
