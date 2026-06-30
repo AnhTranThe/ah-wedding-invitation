@@ -37,6 +37,7 @@
     line-height: 1;
     position: relative;
     z-index: 1;
+    pointer-events: none;
     font-style: normal;
     display: inline-flex;
     align-items: center;

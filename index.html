@@ -1955,7 +1955,7 @@
       id="audio"
     ></audio>
 
-    <button class="toggleAudio">
+    <button class="toggleAudio" onclick="toggleAudio()">
       <i class="treble-clef">&#119070;</i>
     </button>
     <!-- END AUDIO -->
@@ -2010,9 +2010,7 @@
           firebase.initializeApp(config);
           return true;
         } catch (e) {
-          console.warn(
-            "Firebase config not found. Run: npm run dev",
-          );
+          console.warn("Firebase config not found. Run: npm run dev");
           return false;
         }
       }
@@ -2085,14 +2083,26 @@
         });
       }
 
+      function updateAudioIcon(isMuted) {
+        toggleAudioBtn?.classList.toggle("playing", !isMuted);
+      }
+
+      // Audio toggle button
+      function toggleAudio() {
+        if (audio.paused) {
+          audio.play().catch(function () {});
+        } else {
+          audio.pause();
+        }
+        updateAudioIcon(audio.paused);
+      }
+
+      toggleAudioBtn?.addEventListener("click", toggleAudio);
+
       // --- DOMContentLoaded ---
       document.addEventListener("DOMContentLoaded", function () {
         // Audio / Video
         var videos = document.querySelectorAll("video");
-
-        function updateAudioIcon(isMuted) {
-          toggleAudioBtn?.classList.toggle("playing", !isMuted);
-        }
 
         videos.forEach(function (video) {
           video.addEventListener("play", function () {
