@@ -2002,18 +2002,20 @@
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
     <script>
-      firebase.initializeApp(
-        /*FIREBASE_CONFIG_START*/ {
-          apiKey: "AIzaSyCrknoxnXeXnMYcsHUvSPyHNTqP8hNT-F4",
-          authDomain: "ah-wedding.firebaseapp.com",
-          databaseURL:
-            "https://ah-wedding-default-rtdb.asia-southeast1.firebasedatabase.app",
-          projectId: "ah-wedding",
-          storageBucket: "ah-wedding.firebasestorage.app",
-          messagingSenderId: "596609270044",
-          appId: "1:596609270044:web:2c72aee8effd0e4661bad9",
-        } /*FIREBASE_CONFIG_END*/,
-      );
+      async function initFirebase() {
+        try {
+          var res = await fetch("wp-content/themes/js/firebase-config.json");
+          if (!res.ok) throw new Error("Not found");
+          var config = await res.json();
+          firebase.initializeApp(config);
+          return true;
+        } catch (e) {
+          console.warn(
+            "Firebase config not found. Run: npm run dev",
+          );
+          return false;
+        }
+      }
     </script>
     <script>
       // Disable DevTools on production (allow on localhost)
@@ -2323,7 +2325,7 @@
       });
 
       // --- Guest Wishes (Firebase Realtime Database) ---
-      (function () {
+      function startWishes() {
         var db = firebase.database();
         var wishesRef = db.ref("wishes");
         var MAX_WISHES = 50;
@@ -2499,7 +2501,11 @@
 
         updateTicker();
         requestAnimationFrame(tickerLoop);
-      })();
+      }
+
+      initFirebase().then(function (ok) {
+        if (ok) startWishes();
+      });
     </script>
   </body>
 </html>
