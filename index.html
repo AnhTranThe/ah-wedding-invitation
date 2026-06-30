@@ -166,12 +166,8 @@
     <link
       rel="stylesheet"
       href="wp-content/themes/assets/wish.css"
-      media="print"
-      onload="this.media = 'all'"
+      media="all"
     />
-    <noscript
-      ><link rel="stylesheet" href="wp-content/themes/assets/wish.css"
-    /></noscript>
 
     <link rel="https://api.w.org/" href="https://thiepdientu.com.vn/wp-json/" />
 
@@ -1976,7 +1972,10 @@
     </button>
     <!-- END AUDIO -->
 
-    <script src="wp-content/themes/js/jquery.min8a54.js" id="Jquery-js" defer="defer"></script>
+    <script
+      src="wp-content/themes/js/jquery.min8a54.js"
+      id="Jquery-js"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script
@@ -2158,7 +2157,11 @@
         function thumbUrl(url) {
           var idx = url.indexOf("upload/v");
           if (idx !== -1) {
-            return url.slice(0, idx + 7) + "f_auto,q_auto,dpr_auto,w_400,c_fill/" + url.slice(idx + 7);
+            return (
+              url.slice(0, idx + 7) +
+              "f_auto,q_auto,dpr_auto,w_400,c_fill/" +
+              url.slice(idx + 7)
+            );
           }
           return url;
         }
@@ -2348,6 +2351,65 @@
         }
       });
 
+      // --- Wish Toolbar UI (attached immediately, no Firebase needed) ---
+      (function () {
+        var wbtn = document.getElementById("wish-btn");
+        var wpopup = document.getElementById("wish-popup");
+        var wclose = document.getElementById("wish-popup-close");
+        var wname = document.getElementById("wish-name");
+        var gbtn = document.getElementById("gift-btn-toolbar");
+
+        if (wbtn) {
+          wbtn.addEventListener("click", function () {
+            var isOpen = wpopup.classList.contains("open");
+            if (isOpen) {
+              wpopup.classList.remove("open");
+              wpopup.setAttribute("aria-hidden", "true");
+            } else {
+              wpopup.classList.add("open");
+              wpopup.setAttribute("aria-hidden", "false");
+              if (wname) wname.focus();
+            }
+          });
+        }
+
+        if (wclose) {
+          wclose.addEventListener("click", function () {
+            wpopup.classList.remove("open");
+            wpopup.setAttribute("aria-hidden", "true");
+          });
+        }
+
+        if (wpopup) {
+          wpopup.addEventListener("click", function (e) {
+            if (e.target === wpopup) {
+              wpopup.classList.remove("open");
+              wpopup.setAttribute("aria-hidden", "true");
+            }
+          });
+        }
+
+        if (gbtn) {
+          gbtn.addEventListener("click", function () {
+            wpopup.classList.remove("open");
+            wpopup.setAttribute("aria-hidden", "true");
+            var gs = document.getElementById("gift");
+            if (gs) gs.scrollIntoView({ behavior: "smooth" });
+          });
+        }
+
+        document.addEventListener("keydown", function (e) {
+          if (
+            e.key === "Escape" &&
+            wpopup &&
+            wpopup.classList.contains("open")
+          ) {
+            wpopup.classList.remove("open");
+            wpopup.setAttribute("aria-hidden", "true");
+          }
+        });
+      })();
+
       // --- Guest Wishes (Firebase Realtime Database) ---
       function startWishes() {
         var db = firebase.database();
@@ -2356,14 +2418,10 @@
         var wishes = [];
 
         // DOM refs
-        var wishBtn = document.getElementById("wish-btn");
-        var wishPopup = document.getElementById("wish-popup");
-        var wishClose = document.getElementById("wish-popup-close");
         var wishForm = document.getElementById("wish-form");
         var wishName = document.getElementById("wish-name");
         var wishMessage = document.getElementById("wish-message");
         var wishToast = document.getElementById("wish-toast");
-        var giftToolbarBtn = document.getElementById("gift-btn-toolbar");
 
         function _escapeHtml(str) {
           var div = document.createElement("div");
@@ -2388,41 +2446,6 @@
           });
         }
 
-        // --- Event handlers ---
-        wishBtn.addEventListener("click", function () {
-          var isOpen = wishPopup.classList.contains("open");
-          if (isOpen) {
-            wishPopup.classList.remove("open");
-            wishPopup.setAttribute("aria-hidden", "true");
-          } else {
-            wishPopup.classList.add("open");
-            wishPopup.setAttribute("aria-hidden", "false");
-            wishName.focus();
-          }
-        });
-
-        wishClose.addEventListener("click", function () {
-          wishPopup.classList.remove("open");
-          wishPopup.setAttribute("aria-hidden", "true");
-        });
-
-        // Close on overlay click (click outside popup)
-        wishPopup.addEventListener("click", function (e) {
-          if (e.target === wishPopup) {
-            wishPopup.classList.remove("open");
-            wishPopup.setAttribute("aria-hidden", "true");
-          }
-        });
-
-        giftToolbarBtn.addEventListener("click", function () {
-          wishPopup.classList.remove("open");
-          wishPopup.setAttribute("aria-hidden", "true");
-          var giftSection = document.getElementById("gift");
-          if (giftSection) {
-            giftSection.scrollIntoView({ behavior: "smooth" });
-          }
-        });
-
         wishForm.addEventListener("submit", function (e) {
           e.preventDefault();
           var name = wishName.value.trim();
@@ -2434,14 +2457,6 @@
           );
           wishForm.reset();
           wishName.focus();
-        });
-
-        // Close popup on Escape
-        document.addEventListener("keydown", function (e) {
-          if (e.key === "Escape" && wishPopup.classList.contains("open")) {
-            wishPopup.classList.remove("open");
-            wishPopup.setAttribute("aria-hidden", "true");
-          }
         });
 
         // --- Wish Ticker (circular smooth infinite scroll) ---
