@@ -44,14 +44,10 @@
       loop
       id="audio"
     ></audio>
-    <button class="toggleAudio">
+    <button class="toggleAudio" onclick="toggleAudio()">
       <i class="treble-clef">&#119070;</i>
     </button>
 
-    <script
-      src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"
-      defer
-    ></script>
     <script>
       // Disable DevTools on production (allow on localhost)
       if (
@@ -86,6 +82,18 @@
       var toggleAudioBtn = document.querySelector(".toggleAudio");
       audio?.play().catch(function () {});
       toggleAudioBtn?.classList.add("playing");
+
+      function toggleAudio() {
+        var el = document.getElementById("audio");
+        if (!el) { alert("audio element not found"); return; }
+        if (el.paused) {
+          el.play().catch(function (e) { alert("play error: " + e); });
+          document.querySelector(".toggleAudio")?.classList.add("playing");
+        } else {
+          el.pause();
+          document.querySelector(".toggleAudio")?.classList.remove("playing");
+        }
+      }
 
       document
         .getElementById("backLink")
@@ -240,5 +248,6 @@
           });
       });
     </script>
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
   </body>
 </html>

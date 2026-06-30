@@ -1955,7 +1955,7 @@
       id="audio"
     ></audio>
 
-    <button class="toggleAudio">
+    <button class="toggleAudio" onclick="toggleAudio()">
       <i class="treble-clef">&#119070;</i>
     </button>
     <!-- END AUDIO -->
@@ -2001,7 +2001,20 @@
     <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
-    <script src="wp-content/themes/js/firebase-config.js"></script>
+    <script>
+      async function initFirebase() {
+        try {
+          var res = await fetch("wp-content/themes/js/firebase-config.json");
+          if (!res.ok) throw new Error("Not found");
+          var config = await res.json();
+          firebase.initializeApp(config);
+          return true;
+        } catch (e) {
+          console.warn("Firebase config not found. Run: npm run dev");
+          return false;
+        }
+      }
+    </script>
     <script>
       // Disable DevTools on production (allow on localhost)
       if (
@@ -2070,14 +2083,26 @@
         });
       }
 
+      function updateAudioIcon(isMuted) {
+        toggleAudioBtn?.classList.toggle("playing", !isMuted);
+      }
+
+      // Audio toggle button
+      function toggleAudio() {
+        if (audio.paused) {
+          audio.play().catch(function () {});
+        } else {
+          audio.pause();
+        }
+        updateAudioIcon(audio.paused);
+      }
+
+      toggleAudioBtn?.addEventListener("click", toggleAudio);
+
       // --- DOMContentLoaded ---
       document.addEventListener("DOMContentLoaded", function () {
         // Audio / Video
         var videos = document.querySelectorAll("video");
-
-        function updateAudioIcon(isMuted) {
-          toggleAudioBtn?.classList.toggle("playing", !isMuted);
-        }
 
         videos.forEach(function (video) {
           video.addEventListener("play", function () {
@@ -2310,7 +2335,7 @@
       });
 
       // --- Guest Wishes (Firebase Realtime Database) ---
-      (function () {
+      function startWishes() {
         var db = firebase.database();
         var wishesRef = db.ref("wishes");
         var MAX_WISHES = 50;
@@ -2486,7 +2511,11 @@
 
         updateTicker();
         requestAnimationFrame(tickerLoop);
-      })();
+      }
+
+      initFirebase().then(function (ok) {
+        if (ok) startWishes();
+      });
     </script>
   </body>
 </html>

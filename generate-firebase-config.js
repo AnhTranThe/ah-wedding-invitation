@@ -43,9 +43,8 @@ if (missing.length) {
 } else {
   const outPath = resolve(
     __dirname,
-    "wp-content/themes/js/firebase-config.js",
+    "wp-content/themes/js/firebase-config.json",
   );
-  const content = `firebase.initializeApp(${JSON.stringify(config, null, 2)});\n`;
-  writeFileSync(outPath, content);
+  writeFileSync(outPath, JSON.stringify(config, null, 2) + "\n");
   console.log("Generated " + outPath);
 }

@@ -119,12 +119,43 @@
         justify-content: center;
       }
       .toggleAudio i {
+        pointer-events: none;
         color: #fff;
         font-size: 22px;
         font-style: normal;
+        position: relative;
+        z-index: 1;
+      }
+      .toggleAudio i::before {
+        content: '';
+        position: absolute;
+        width: 300%;
+        height: 2px;
+        background: white;
+        transform: rotate(-45deg);
+        opacity: 0;
+        transition: opacity 0.3s;
+        pointer-events: none;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+      }
+      .toggleAudio:not(.playing) i::before {
+        opacity: 1;
       }
       .toggleAudio.playing {
         animation: spin 3s linear infinite;
+      }
+      .toggleAudio.playing::after {
+        content: '';
+        position: absolute;
+        inset: -3px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        border-top-color: rgba(255,255,255,0.7);
+        border-right-color: rgba(255,255,255,0.2);
+        opacity: 1;
+        animation: spin 0.8s linear infinite;
       }
       @keyframes spin {
         to { transform: rotate(360deg); }
