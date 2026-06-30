@@ -1999,6 +1999,9 @@
       data-wp-strategy="async"
     ></script>
     <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-database-compat.js"></script>
+    <script src="wp-content/themes/js/firebase-config.js"></script>
     <script>
       // Disable DevTools on production (allow on localhost)
       if (
@@ -2306,10 +2309,12 @@
         }
       });
 
-      // --- Guest Wishes ---
+      // --- Guest Wishes (Firebase Realtime Database) ---
       (function () {
-        var STORAGE_KEY = "wedding_wishes";
+        var db = firebase.database();
+        var wishesRef = db.ref("wishes");
         var MAX_WISHES = 50;
+        var wishes = [];
 
         // DOM refs
         var wishBtn = document.getElementById("wish-btn");
@@ -2320,18 +2325,6 @@
         var wishMessage = document.getElementById("wish-message");
         var wishToast = document.getElementById("wish-toast");
         var giftToolbarBtn = document.getElementById("gift-btn-toolbar");
-
-        function getWishes() {
-          try {
-            return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-          } catch (e) {
-            return [];
-          }
-        }
-
-        function saveWishes(wishes) {
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(wishes));
-        }
 
         function _escapeHtml(str) {
           var div = document.createElement("div");
@@ -2349,17 +2342,11 @@
         }
 
         function addWish(name, message) {
-          var wishes = getWishes();
-          wishes.push({
+          wishesRef.push({
             name: name.trim(),
             message: message.trim(),
-            time: Date.now(),
+            time: firebase.database.ServerValue.TIMESTAMP,
           });
-          // Keep max
-          if (wishes.length > MAX_WISHES) {
-            wishes = wishes.slice(wishes.length - MAX_WISHES);
-          }
-          saveWishes(wishes);
         }
 
         // --- Event handlers ---
@@ -2425,7 +2412,6 @@
         var speed = 30;
 
         function updateTicker() {
-          var wishes = getWishes();
           if (wishes.length === 0) {
             tickerContent.innerHTML = "";
             return;
@@ -2488,6 +2474,15 @@
 
           requestAnimationFrame(tickerLoop);
         }
+
+        // Load wishes from Firebase in real-time
+        wishesRef
+          .orderByChild("time")
+          .limitToLast(MAX_WISHES)
+          .on("child_added", function (snap) {
+            wishes.push(snap.val());
+            updateTicker();
+          });
 
         updateTicker();
         requestAnimationFrame(tickerLoop);
