@@ -260,7 +260,7 @@
 /* --- Wish Ticker (staggered stickers from bottom to top) --- */
 .wish-ticker {
   position: fixed;
-  bottom: 50px;
+  bottom: 10px;
   left: 16px;
   z-index: 998;
   width: 300px;
