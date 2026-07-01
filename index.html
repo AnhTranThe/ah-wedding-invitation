@@ -2459,7 +2459,7 @@
             tickerContent.innerHTML = "";
             return;
           }
-          var recent = wishes.slice(-5);
+          var recent = wishes.slice(-(window.innerWidth < 768 ? 2 : 5));
           var icons = [
             "🎉",
             "🎊",
