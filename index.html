@@ -141,7 +141,8 @@
     <link
       rel="preload"
       as="image"
-      href="https://res.cloudinary.com/deneskatf/image/upload/f_auto,q_auto/v1781974329/dsc02975_mtuhmk.webp"
+      href="https://res.cloudinary.com/deneskatf/image/upload/f_auto,q_auto,w_1920,c_limit/v1781974329/dsc02975_mtuhmk.webp"
+      fetchpriority="high"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -245,10 +246,11 @@
     <header>
       <section id="banner" class="bg_overlay">
         <img
-          src="https://res.cloudinary.com/deneskatf/image/upload/v1781974329/dsc02975_mtuhmk.webp"
+          src="https://res.cloudinary.com/deneskatf/image/upload/f_auto,q_auto,w_1920,c_limit/v1781974329/dsc02975_mtuhmk.webp"
           alt=""
           class="banner-bg img_bg banner_top"
           style="background-position: center center"
+          fetchpriority="high"
         />
 
         <div class="container">
@@ -2028,28 +2030,13 @@
         }
       }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/disable-devtool@0.3.9/disable-devtool.min.js"></script>
     <script>
-      // Disable DevTools on production (allow on localhost)
       if (
         location.hostname !== "localhost" &&
         location.hostname !== "127.0.0.1"
       ) {
-        document.addEventListener("contextmenu", (event) =>
-          event.preventDefault(),
-        );
-        document.addEventListener("keydown", function (event) {
-          if (
-            event.keyCode === 123 ||
-            (event.ctrlKey &&
-              event.shiftKey &&
-              (event.keyCode === 73 || event.keyCode === 74)) ||
-            (event.ctrlKey && event.keyCode === 85)
-          ) {
-            event.preventDefault();
-            return false;
-          }
-        });
-
+        DisableDevtool();
       }
 
       // Welcome modal with 5-minute cooldown
