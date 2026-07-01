@@ -70,13 +70,6 @@
             return false;
           }
         });
-        (function () {
-          function debug() {
-            debugger;
-            setTimeout(debug, 50);
-          }
-          debug();
-        })();
       }
 
       var audio = document.getElementById("audio");
@@ -86,9 +79,14 @@
 
       function toggleAudio() {
         var el = document.getElementById("audio");
-        if (!el) { alert("audio element not found"); return; }
+        if (!el) {
+          alert("audio element not found");
+          return;
+        }
         if (el.paused) {
-          el.play().catch(function (e) { alert("play error: " + e); });
+          el.play().catch(function (e) {
+            alert("play error: " + e);
+          });
           document.querySelector(".toggleAudio")?.classList.add("playing");
         } else {
           el.pause();
@@ -109,7 +107,11 @@
       function thumbnailUrl(url) {
         var idx = url.indexOf("upload/v");
         if (idx !== -1) {
-          return url.slice(0, idx + 7) + "f_auto,q_auto,dpr_auto,w_400,c_fill/" + url.slice(idx + 7);
+          return (
+            url.slice(0, idx + 7) +
+            "f_auto,q_auto,dpr_auto,w_400,c_fill/" +
+            url.slice(idx + 7)
+          );
         }
         return url;
       }
