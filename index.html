@@ -2469,7 +2469,6 @@
             tickerContent.innerHTML = "";
             return;
           }
-          var recent = wishes.slice(-(window.innerWidth < 768 ? 2 : 3));
           var icons = [
             "🎉",
             "🎊",
@@ -2484,7 +2483,7 @@
             "🌟",
             "🎀",
           ];
-          tickerContent.innerHTML = recent
+          tickerContent.innerHTML = wishes
             .map(function (w) {
               var icon = icons[Math.floor(Math.random() * icons.length)];
               return (
