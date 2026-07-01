@@ -1963,10 +1963,10 @@
 
     <!-- AUDIO -->
     <audio
-      src="https://s3.ap-southeast-1.amazonaws.com/tynab.wedding/audio/ido.mp3"
       controls
-      loop
       id="audio"
+      data-song1="https://s3.ap-southeast-1.amazonaws.com/tynab.wedding/audio/ido.mp3"
+      data-song2="https://res.cloudinary.com/deneskatf/video/upload/v1782749384/AH.WEDDING/AH.PICS/closetoyou_ttfsxa.mp3"
     ></audio>
 
     <button class="toggleAudio" onclick="toggleAudio()">
@@ -2039,26 +2039,25 @@
         DisableDevtool();
       }
 
-      // Welcome modal with 5-minute cooldown
       var audio = document.getElementById("audio");
       var toggleAudioBtn = document.querySelector(".toggleAudio");
       var startBtn = document.getElementById("startButton");
       var welcomeModal = document.getElementById("welcome-modal");
+      var currentTrack = 1;
 
-      var lastDismissed = sessionStorage.getItem("welcomeDismissed");
-      var now = Date.now();
-      if (lastDismissed && now - Number(lastDismissed) < 300000) {
-        audio?.play().catch(function () {});
-        toggleAudioBtn?.classList.add("playing");
-      } else {
-        if (welcomeModal) welcomeModal.style.display = "flex";
-        document.body.style.overflow = "hidden";
-      }
+      audio.playSong1 = function () { currentTrack = 1; audio.src = audio.dataset.song1; audio.play(); };
+      audio.playSong2 = function () { currentTrack = 2; audio.src = audio.dataset.song2; audio.play(); };
+      audio.addEventListener("ended", function () {
+        if (currentTrack === 1) audio.playSong2();
+        else audio.playSong1();
+      });
+
+      if (welcomeModal) welcomeModal.style.display = "flex";
+      document.body.style.overflow = "hidden";
 
       if (startBtn) {
         startBtn.addEventListener("click", function () {
-          sessionStorage.setItem("welcomeDismissed", String(Date.now()));
-          audio?.play();
+          audio.playSong1();
           toggleAudioBtn?.classList.add("playing");
           if (welcomeModal) welcomeModal.style.display = "none";
           document.body.style.overflow = "auto";
@@ -2081,9 +2080,9 @@
         toggleAudioBtn?.classList.toggle("playing", !isMuted);
       }
 
-      // Audio toggle button
       function toggleAudio() {
         if (audio.paused) {
+          if (!audio.src) { audio.playSong1(); return; }
           audio.play().catch(function () {});
         } else {
           audio.pause();
@@ -2459,7 +2458,7 @@
             tickerContent.innerHTML = "";
             return;
           }
-          var recent = wishes.slice(-5);
+          var recent = wishes.slice(-(window.innerWidth < 768 ? 2 : 5));
           var icons = [
             "🎉",
             "🎊",
