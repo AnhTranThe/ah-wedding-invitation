@@ -264,7 +264,7 @@
   left: 16px;
   z-index: 998;
   width: 300px;
-  max-height: 260px;
+  max-height: 156px;
   pointer-events: none;
   overflow: hidden;
 }
@@ -609,10 +609,11 @@
     bottom: 60px;
     left: 12px;
     width: 240px;
-    max-height: 220px;
+    max-height: 80px;
   }
   .wish-ticker__item {
     padding: 4px 10px;
     margin-bottom: 3px;
+    font-size: 11px;
   }
 }
