@@ -1,64 +1,94 @@
-# WEDDING INVITATION WEBSITE
+# 💍 Wedding Thế Anh & Lệ Huỳnh
 
-## Overview
+Digital wedding invitation website with guest wish ticker, photo albums, countdown, and audio playlist.
 
-This project is a beautifully designed **Wedding Invitation Website** for the celebration of **Thế Anh & Lệ Huỳnh**. The website provides an interactive experience to invite guests, share the couple's story, and deliver key details about the event. It is crafted with modern web technologies, ensuring a delightful experience for all visitors.
+## Tech Stack
 
----
+### Frontend
+| Technology | Purpose |
+|---|---|
+| **HTML5 / CSS3 / JavaScript (ES6+)** | Core web technologies |
+| **UIkit 3.17.11** | UI framework (countdown, scrollspy, grid, animations) |
+| **Bootstrap 5.2.3** | Responsive layout & utility classes |
+| **jQuery 3.7.1** | DOM manipulation |
+| **Swiper 11** | Touch-enabled photo carousels |
+| **Fancybox 5** | Lightbox gallery |
+| **GLightbox** | Touch-friendly album lightbox |
+| **AOS (Animate On Scroll)** | Scroll-triggered animations |
+| **Lazysizes 5.3.2** | Lazy loading for images |
+| **Remixicon 4.0** | Icon set |
+| **Disable Devtool 0.3.9** | Blocks DevTools on production |
 
-## Features
+### Fonts
+- **Google Fonts:** Playfair Display, Be Vietnam Pro, Dancing Script, Great Vibes, Srisakdi, Noto Serif Display, Quicksand, WindSong
+- **Local:** SVN-Gilroy (Bold, Medium, Regular)
 
-1. **Welcome Modal**:
-   - Engages visitors with a warm welcome message and an option to play background music.
-   - Accessible with a "Start" button to enter the main site.
+### Backend & Services
+| Service | Usage |
+|---|---|
+| **Firebase Realtime Database** | Stores & streams guest wishes in real-time |
+| **Cloudinary** | Image/video CDN for all wedding photos and album assets |
+| **AWS S3 (ap-southeast-1)** | Supplementary image hosting, video, and background audio |
 
-2. **Header Section**:
-   - Displays a countdown timer for the wedding.
-   - Provides easy access to contact, location, and gift details.
+### Build & CI/CD
+| Tool | Purpose |
+|---|---|
+| **npm** | Package management & scripts |
+| **live-server** | Local dev server with hot reload |
+| **clean-css-cli** | CSS minification |
+| **html-minifier** | HTML minification |
+| **terser** | JS minification |
+| **GitHub Actions** | CI/CD — generates config from secrets, deploys to GitHub Pages |
+| **generate-firebase-config.js** | Reads `.env` / secrets, writes `firebase-config.json` |
+| **list-cloudinary.js** | Fetches all Cloudinary assets, writes `cloudinary-images.json` |
 
-3. **About Us Section**:
-   - Showcases the Bride and Groom with their photos and a brief description of their personalities.
+## Development
 
-4. **Timeline Section**:
-   - Presents the couple's love story through key milestones, each with images and descriptions.
+```bash
+# Install dependencies
+npm install
 
-5. **Album**:
-   - A pre-wedding photo gallery powered by Swiper for smooth sliding and image previews via Fancybox.
+# Start dev server
+npm run dev
+```
 
-6. **Video Gallery**:
-   - Features a curated video capturing special moments and the proposal.
+The dev script generates `firebase-config.json` from `.env` and starts a local server on port 5501.
 
-7. **Dress Code**:
-   - Outlines the event timeline with visually engaging icons and text animations.
+## Deployment
 
-8. **Invitation Details**:
-   - Includes location, time, and contact information for the wedding venue.
+Push to `main` → GitHub Actions generates configs from repository secrets and deploys to GitHub Pages.
 
-9. **Gift Section**:
-   - Provides a QR code for sending gifts digitally.
+### Required Secrets
 
-10. **Thank You Section**:
-    - Expresses gratitude to guests for their presence and blessings.
+| Secret | Description |
+|---|---|
+| `CLOUDINARY_CLOUD_NAME` | Cloudinary cloud name |
+| `CLOUDINARY_API_KEY` | Cloudinary API key |
+| `CLOUDINARY_API_SECRET` | Cloudinary API secret |
+| `FIREBASE_API_KEY` | Firebase Web API key |
+| `FIREBASE_AUTH_DOMAIN` | Firebase auth domain |
+| `FIREBASE_DATABASE_URL` | Firebase Realtime Database URL |
+| `FIREBASE_PROJECT_ID` | Firebase project ID |
+| `FIREBASE_STORAGE_BUCKET` | Firebase storage bucket |
+| `FIREBASE_MESSAGING_SENDER_ID` | Firebase sender ID |
+| `FIREBASE_APP_ID` | Firebase app ID |
 
-11. **Background Audio**:
-    - Plays a romantic song with interactive controls.
+## Project Structure
 
----
-
-## Technologies Used
-
-- **HTML5 & CSS3**: Structure and styling.
-- **JavaScript**: Interactive features and animations.
-- **UIkit**: Responsive layout and components.
-- **Swiper.js**: Carousel for photo albums.
-- **Fancybox**: Gallery lightbox integration.
-- **AOS.js**: Smooth scroll animations.
-- **LazyLoad**: Optimized image loading.
-- **ScrollReveal**: Smooth content reveal on scroll.
-
----
-
-## Credits
-
-- **Icons**: Remixicon and FontAwesome.
-- **Libraries**: Swiper.js, Fancybox, AOS.js, and UIkit.
+```
+├── .github/workflows/deploy.yml   # CI/CD pipeline
+├── index.html                      # Main wedding page
+├── gallery.html                    # Photo gallery page
+├── cloudinary-images.json          # Auto-generated asset list
+├── generate-firebase-config.js     # Firebase config generator
+├── list-cloudinary.js              # Cloudinary asset fetcher
+├── wp-content/
+│   ├── themes/
+│   │   ├── assets/                 # Custom CSS & JS
+│   │   ├── css/                    # Framework & theme CSS
+│   │   ├── js/                     # Scripts & firebase-config.json
+│   │   ├── pic/                    # Static images
+│   │   └── font/                   # Local fonts
+│   └── ...
+└── .env                            # Local environment variables
+```
