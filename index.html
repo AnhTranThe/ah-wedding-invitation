@@ -2165,11 +2165,19 @@
           return url;
         }
 
-        function buildAlbum(containerId, images, glightboxClass, albumName) {
+        function buildAlbum(
+          containerId,
+          images,
+          glightboxClass,
+          albumName,
+          placeholderBg,
+        ) {
           var container = document.getElementById(containerId);
           if (!images.length) {
             container.innerHTML =
-              '<div class="album-cover coming-soon" style="display:flex;align-items:center;justify-content:center;aspect-ratio:4/3;background:url(https://res.cloudinary.com/deneskatf/image/upload/f_auto,q_auto/v1781842450/AH.WEDDING/OM.EDIT/dsc03417_mtpj3g.webp) center/cover;color:#fff;font-size:1.2rem;font-weight:600;text-shadow:0 2px 8px rgba(0,0,0,0.4);position:relative"><span style="background:rgba(0,0,0,0.3);padding:10px 24px;border-radius:30px;backdrop-filter:blur(4px)">COMING SOON</span></div>' +
+              '<div class="album-cover coming-soon" style="display:flex;align-items:center;justify-content:center;aspect-ratio:4/3;background:url(' +
+              placeholderBg +
+              ') center/cover;color:#fff;font-size:1.2rem;font-weight:600;text-shadow:0 2px 8px rgba(0,0,0,0.4);position:relative"><span style="background:rgba(0,0,0,0.3);padding:10px 24px;border-radius:30px;backdrop-filter:blur(4px)">COMING SOON</span></div>' +
               '<div class="album-info"><h3 class="album-name">' +
               albumName +
               "</h3></div>";
@@ -2240,6 +2248,8 @@
               class: "glightbox-om-edit",
               name: "Pre Wedding Albums ",
               images: wedding,
+              placeholder:
+                "https://res.cloudinary.com/deneskatf/image/upload/f_auto,q_auto/v1781842450/AH.WEDDING/OM.EDIT/dsc03417_mtpj3g.webp",
             });
 
             // NT.PICS → albumAnhCuoi1
@@ -2255,6 +2265,8 @@
                     return x.url || x;
                   })
                 : [],
+              placeholder:
+                "https://res.cloudinary.com/deneskatf/image/upload/f_auto,q_auto/v1781842450/AH.WEDDING/OM.EDIT/dsc03417_mtpj3g.webp",
             });
 
             // SG.PICS → albumAnhCuoi2
@@ -2270,6 +2282,8 @@
                     return x.url || x;
                   })
                 : [],
+              placeholder:
+                "https://res.cloudinary.com/deneskatf/image/upload/f_auto,q_auto,dpr_auto,w_400,c_fill/v1782983959/AH.WEDDING/HOPE.EDIT/PCH06448_o5kawk.webp",
             });
 
             // MEMORIES.PICS → albumMemories
@@ -2285,10 +2299,12 @@
                     return x.url || x;
                   })
                 : [],
+              placeholder:
+                "https://res.cloudinary.com/deneskatf/image/upload/f_auto,q_auto/v1781842450/AH.WEDDING/OM.EDIT/dsc03417_mtpj3g.webp",
             });
 
             albumData.forEach(function (a) {
-              buildAlbum(a.id, a.images, a.class, a.name);
+              buildAlbum(a.id, a.images, a.class, a.name, a.placeholder);
             });
           })
           .catch(function () {
@@ -2298,28 +2314,36 @@
                 class: "glightbox-om-edit",
                 name: "Albums Wedding",
                 images: [],
+                placeholder:
+                  "https://res.cloudinary.com/deneskatf/image/upload/f_auto,q_auto/v1781842450/AH.WEDDING/OM.EDIT/dsc03417_mtpj3g.webp",
               },
               {
                 id: "albumAnhCuoi1",
                 class: "glightbox-cuoi-1",
                 name: "Ảnh Cưới - Nha Trang",
                 images: [],
+                placeholder:
+                  "https://res.cloudinary.com/deneskatf/image/upload/f_auto,q_auto/v1781842450/AH.WEDDING/OM.EDIT/dsc03417_mtpj3g.webp",
               },
               {
                 id: "albumAnhCuoi2",
                 class: "glightbox-cuoi-2",
                 name: "Ảnh Cưới - Sài Gòn",
                 images: [],
+                placeholder:
+                  "https://res.cloudinary.com/deneskatf/image/upload/f_auto,q_auto,dpr_auto,w_400,c_fill/v1782983959/AH.WEDDING/HOPE.EDIT/PCH06448_o5kawk.webp",
               },
               {
                 id: "albumMemories",
                 class: "glightbox-memories",
                 name: "Hình Kỉ Niệm",
                 images: [],
+                placeholder:
+                  "https://res.cloudinary.com/deneskatf/image/upload/f_auto,q_auto/v1781842450/AH.WEDDING/OM.EDIT/dsc03417_mtpj3g.webp",
               },
             ];
             albumData.forEach(function (a) {
-              buildAlbum(a.id, a.images, a.class, a.name);
+              buildAlbum(a.id, a.images, a.class, a.name, a.placeholder);
             });
           });
       });
